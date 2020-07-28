@@ -1,0 +1,9 @@
+{
+  "name": "Roshan Kr Soni",
+  "short_name": "Roshan",
+  "lang": "en-US",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "white",
+  "theme_color": "white"
+}
