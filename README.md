@@ -7,7 +7,11 @@
 
 Updated Portfolio can be seen here 
   [link to Portfolio](https://roshankrsoni.github.io)
+<br />
+## Pagespeed Score
 
+<img src='https://github.com/Roshankrsoni/Roshankrsoni.github.io/blob/master/pagespeed.png?raw=true' />
+<br />
 
 `No copyright issues.
 Feel free to copy anything and everything from this website.
