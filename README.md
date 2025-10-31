@@ -20,7 +20,7 @@ ________________________________________________________________________________
 
 Cheers, <br>
 Roshan Kr Soni<br>
-mailto: Roshankrsoni1@gmail.com
+roshankrsoni1 [at] gmail.com
 ________________________________________________________________________________________
 
 I sincerely admit ! Not everything thing you saw on the website was developed by me from
