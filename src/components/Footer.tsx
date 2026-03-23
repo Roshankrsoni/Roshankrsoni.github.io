@@ -1,4 +1,4 @@
-import { Twitter, Linkedin, Mail } from 'lucide-react';
+import { Twitter, Linkedin, Mail, Github, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const currentDate = new Date();
@@ -46,15 +46,29 @@ export default function Footer() {
           <div className="flex flex-col gap-3">
             <h3 className="text-[11px] font-bold text-slate-900 dark:text-slate-100 uppercase tracking-widest">Resources</h3>
             <div className="flex flex-col gap-2 text-xs text-slate-600 dark:text-slate-400 font-medium">
-              <a target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#">Blog</a>
-              <a target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="https://github.com/">Github</a>
+              <a target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="https://lymcode.hashnode.dev/">Blog</a>
+              <a target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="https://github.com/roshankrsoni">Github</a>
             </div>
           </div>
           <div className="flex flex-col gap-3 col-span-2 sm:col-span-1">
             <h3 className="text-[11px] font-bold text-slate-900 dark:text-slate-100 uppercase tracking-widest">Connect</h3>
-            <div className="mt-3">
-              <a target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-3 py-1.5 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" href="mailto:roshanx404@gmail.com">
-                Contact Me
+            <div className="flex items-center gap-2 mt-1">
+              <a target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://github.com/roshankrsoni">
+                <Github className="w-4 h-4" />
+              </a>
+              <a target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://x.com/roshankrsoni">
+                <Twitter className="w-4 h-4" />
+              </a>
+              <a target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://instagram.com/roshankrsoni">
+                <Instagram className="w-4 h-4" />
+              </a>
+              {/* email */}
+              <a target="_blank" rel="noopener noreferrer" aria-label="Mail" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="mailto:roshanx404@gmail.com">
+                <Mail className="w-4 h-4" />
+              </a>
+              {/* linkedin */}
+              <a target="_blank" rel="noopener noreferrer" aria-label="Linkedin" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://www.linkedin.com/in/roshankrsoni/">
+                <Linkedin className="w-4 h-4" />
               </a>
             </div>
           </div>
