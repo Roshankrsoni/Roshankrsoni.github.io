@@ -3,14 +3,13 @@
 </div>
 
 <br />
-<br>
-<img src="https://img.shields.io/github/stars/Roshankrsoni/Roshankrsoni.github.io" alt="Stars" /> &nbsp;&nbsp;
-<img src="https://img.shields.io/github/forks/Roshankrsoni/Roshankrsoni.github.io" alt="Forks" /> &nbsp;&nbsp;
-<img src="https://img.shields.io/github/issues/Roshankrsoni/Roshankrsoni.github.io" alt="Issues" /> &nbsp;&nbsp;
-<img src="https://img.shields.io/github/issues-closed/Roshankrsoni/Roshankrsoni.github.io" alt="Issues Closed" /> &nbsp;&nbsp;
-<img src="https://img.shields.io/github/issues-pr/Roshankrsoni/Roshankrsoni.github.io" alt="Issues PR" /> &nbsp;&nbsp;
-<br>
-<br>
+<p align="center">
+  <img src="https://img.shields.io/github/stars/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Stars" /> 
+  <img src="https://img.shields.io/github/forks/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Forks" /> 
+  <img src="https://img.shields.io/github/issues/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues" /> 
+  <img src="https://img.shields.io/github/issues-closed/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues Closed" /> 
+  <img src="https://img.shields.io/github/issues-pr/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues PR" /> 
+</p>
 
 <h1 align="center">Roshan Kr Soni - Personal Portfolio</h1>
 <p align="center">
