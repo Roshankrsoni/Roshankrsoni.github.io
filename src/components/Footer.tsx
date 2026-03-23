@@ -1,6 +1,8 @@
 import { Twitter, Linkedin, Mail } from 'lucide-react';
 
 export default function Footer() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
   return (
     <footer className="max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800 pt-6 pb-4">
       <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-6">
@@ -60,7 +62,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-        <span>© 2026 Roshan Kr Soni. All rights reserved.</span>
+        <span>© {year} Roshan Kr Soni. All rights reserved.</span>
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <p>Built with ❤️ by <a target="_blank" rel="noopener noreferrer" className="text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="https://www.linkedin.com/in/roshankrsoni/">Roshan Kr Soni</a></p>
         </div>
