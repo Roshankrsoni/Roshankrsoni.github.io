@@ -25,14 +25,18 @@
           content="Senior Software Engineer specializing in React, React Native, Full Stack Development, and AI Integration." />
      <meta property="twitter:image" content="https://i.ibb.co/FtDLRjM/Screenshot-2026-03-23-at-4-38-03-PM.png" />
 
-     <!-- Preconnect for fonts -->
+     <!-- Preload and load Google Fonts -->
      <link rel="preconnect" href="https://fonts.googleapis.com" />
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-     <script src="https://topmate-embed.s3.ap-south-1.amazonaws.com/v1/topmate-embed.js"
-          user-profile="https://topmate.io/embed/profile/roshan?theme=ececec"
-          btn-style='{"backgroundColor":"#000","color":"#fff","border":"1px solid #000"}' embed-version="v1"
-          button-text="💬 Let's Connect" position-right="30px" position-bottom="30px" custom-padding="0px"
-          custom-font-size="14px" custom-font-weight="200" custom-width="150px" async="" defer=""></script>
+     <link rel="preload" as="style"
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+     <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+          media="print" onload="this.media='all'" />
+     <noscript>
+          <link rel="stylesheet"
+               href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+     </noscript>
      <meta content=32oSWHuVyNTe5fpVSYiYxFxgCtlcHC5zIBhGg7nPDRk name=google-site-verification>
      <meta content=all name=audience>
      <meta content=global name=distribution>
@@ -62,6 +66,12 @@
 <body>
      <div id="root"></div>
      <script type="module" src="/src/main.tsx"></script>
+     <!-- Defer third-party script to end of body -->
+     <script src="https://topmate-embed.s3.ap-south-1.amazonaws.com/v1/topmate-embed.js"
+          user-profile="https://topmate.io/embed/profile/roshan?theme=ececec"
+          btn-style='{"backgroundColor":"#000","color":"#fff","border":"1px solid #000"}' embed-version="v1"
+          button-text="💬 Let's Connect" position-right="30px" position-bottom="30px" custom-padding="0px"
+          custom-font-size="14px" custom-font-weight="200" custom-width="150px" async defer></script>
 </body>
 
 </html>
