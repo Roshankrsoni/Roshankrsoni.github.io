@@ -16,10 +16,8 @@ export default function Footer() {
               <p className="text-[10px] text-slate-500 dark:text-slate-400">Ranchi, Jharkhand, India</p>
             </div>
           </div>
-          <p className="text-xs text-slate-600 dark:text-slate-400 font-medium max-w-xs text-left leading-relaxed">
-            Wanna chat? Contact anywhere below.
-          </p>
-          <div className="flex items-center gap-3">
+
+          {/* <div className="flex items-center gap-3">
             <a target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://x.com/">
               <Twitter className="w-3.5 h-3.5" />
             </a>
@@ -29,7 +27,7 @@ export default function Footer() {
             <a target="_blank" rel="noopener noreferrer" aria-label="Mail" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="mailto:roshanx404@gmail.com">
               <Mail className="w-3.5 h-3.5" />
             </a>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-6 text-left">
@@ -52,6 +50,9 @@ export default function Footer() {
           </div>
           <div className="flex flex-col gap-3 col-span-2 sm:col-span-1">
             <h3 className="text-[11px] font-bold text-slate-900 dark:text-slate-100 uppercase tracking-widest">Connect</h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400 font-medium max-w-xs text-left leading-relaxed">
+              Wanna chat? Contact anywhere below.
+            </p>
             <div className="flex items-center gap-2 mt-1">
               <a target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://github.com/roshankrsoni">
                 <Github className="w-4 h-4" />
