@@ -52,7 +52,7 @@ export default function Navbar() {
           src={profileImg} 
         />
         <div className="flex flex-col">
-          <h6 className="leading-tight font-medium font-dancing-script text-base">Roshan Kr Soni <span className="text-xs">👋🏼</span></h6>
+          <h5 className="leading-tight font-medium font-dancing-script text-lg">Roshan Kr Soni <span className="text-sm">👋🏼</span></h5>
           <div className="text-slate-500 dark:text-slate-400 text-[10px] font-medium h-3.5 flex items-center overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.span
