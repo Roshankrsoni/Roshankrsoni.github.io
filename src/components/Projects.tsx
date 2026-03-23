@@ -5,7 +5,7 @@ import { getSkillIcon } from '../utils/icons';
 const projects = [
   {
     id: 1,
-    title: "Imperial Dade Mobile App",
+    title: "Imperial Dade Web & Mobile App",
     description: "A comprehensive B2B E-Commerce mobile application (iOS & Android) serving cleaning and foodservice organizations across North America. Built with React Native and Redux Thunk for seamless state management, native performance, and offline capabilities.",
     image: "https://totalfood.com/wp-content/uploads/2024/08/Imperial-Dade-Ecommerce.webp",
     link: "https://play.google.com/store/apps/details?id=com.imperialdade.androidapp&hl=en_US",
@@ -13,7 +13,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Asort E-Commerce Platform",
+    title: "Asort E-Commerce Platform & App",
     description: "India's first Co-Commerce platform. A full-stack fashion and lifestyle marketplace built on the MERN stack, featuring complex product catalogs, secure checkout flows, and real-time inventory management.",
     image: "https://i.ytimg.com/vi/HscGu0EH5ts/maxresdefault.jpg",
     link: "https://asort.com/home",

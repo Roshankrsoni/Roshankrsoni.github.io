@@ -1,13 +1,11 @@
-import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-
-const Experience = lazy(() => import('./components/Experience'));
-const Projects = lazy(() => import('./components/Projects'));
-const Services = lazy(() => import('./components/Services'));
-const Blogs = lazy(() => import('./components/Blogs'));
-const Contact = lazy(() => import('./components/Contact'));
-const Footer = lazy(() => import('./components/Footer'));
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Services from './components/Services';
+import Blogs from './components/Blogs';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -15,17 +13,13 @@ export default function App() {
       <Navbar />
       <main className="min-h-[50vh] max-w-5xl mx-auto pt-3 pb-8">
         <Hero />
-        <Suspense fallback={<div className="py-20 text-center text-sm text-slate-500 animate-pulse font-mono">Loading content...</div>}>
-          <Experience />
-          <Projects />
-          <Services />
-          <Blogs />
-          <Contact />
-        </Suspense>
+        <Experience />
+        <Projects />
+        <Services />
+        <Blogs />
+        <Contact />
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 }
