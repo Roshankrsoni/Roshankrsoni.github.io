@@ -1,5 +1,5 @@
 
-<h1 align="center">Roshan Kr Soni - <a href="https://roshankrsoni.github.io" target="_blank" style="text-decoration:none; color:inherit;">Personal Portfolio</a></h1>
+<h1 align="center">Roshan Kr Soni - <a href="https://roshankrsoni.github.io" target="_blank" style="text-decoration:none; color:inherit;"> Portfolio</a></h1>
 <p align="center">
   <strong>Senior Software Engineer | React & React Native Expert | AI Integration Specialist</strong><br>
   A modern, high-performance portfolio highlighting my experience, projects, and services.
