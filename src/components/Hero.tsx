@@ -30,8 +30,8 @@ export default function Hero() {
       >
         <h1 className="text-3xl md:text-4xl font-medium leading-tight tracking-tight text-slate-900 dark:text-slate-50">
           <span className="font-dancing-script font-bold text-blue-600 dark:text-blue-400">Intelligent</span> engineering <br className="hidden md:block" />
-          <span className="font-dancing-script font-bold text-emerald-600 dark:text-emerald-400">Seamless</span> mobile apps <br className="hidden md:block" />
-          Solutions that <span className="font-dancing-script font-bold text-amber-600 dark:text-amber-400">Scale</span>
+          <span className="font-dancing-script font-bold text-emerald-600 dark:text-emerald-400">Seamless</span> Mobile experiences <br className="hidden md:block" />
+         and Web Solutions that <span className="font-dancing-script font-bold text-amber-600 dark:text-amber-400">Scale</span>
         </h1>
       </motion.div>
 
@@ -41,7 +41,7 @@ export default function Hero() {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <p className="text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
-          I am a Senior Software Engineer specializing in React, React Native, and Full Stack development. I build high-performance web and mobile applications, seamlessly integrating AI to deliver smart, scalable, and user-centric digital experiences.
+          I’m a Senior Software Engineer focused on React, React Native and Full‑stack development. I design and build high‑performance web and mobile applications, integrating AI to create smart, scalable, and user‑centric digital products.
         </p>
       </motion.div>
 

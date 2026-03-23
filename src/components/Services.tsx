@@ -5,7 +5,7 @@ import { Code2, Smartphone, BrainCircuit, LayoutTemplate, ArrowRight } from 'luc
 const servicesData = [
   {
     title: "Mobile App Development",
-    description: "Building cross-platform, high-performance mobile applications for iOS and Android using React Native, delivering native-like fluid experiences.",
+    description: "Cross‑platform, high‑performance iOS and Android apps using React Native, with smooth native‑like interactions and offline‑first experiences.",
     icon: Smartphone,
     number: "01",
     color: "text-rose-500"

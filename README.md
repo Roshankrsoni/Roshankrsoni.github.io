@@ -1,44 +1,100 @@
-# Roshan Kr Soni - Personal Portfolio (v1)
+<div align="center">
+  <img alt="Roshan Kr Soni Portfolio" src="assets/portfolio.png" width="800" />
+</div>
 
-Welcome to my personal portfolio repository! This site showcases my projects, skills, and experience as a software developer.
+<br />
+<br>
+<img src="https://img.shields.io/github/stars/Roshankrsoni/Roshankrsoni.github.io" alt="Stars" /> &nbsp;&nbsp;
+<img src="https://img.shields.io/github/forks/Roshankrsoni/Roshankrsoni.github.io" alt="Forks" /> &nbsp;&nbsp;
+<img src="https://img.shields.io/github/issues/Roshankrsoni/Roshankrsoni.github.io" alt="Issues" /> &nbsp;&nbsp;
+<img src="https://img.shields.io/github/issues-closed/Roshankrsoni/Roshankrsoni.github.io" alt="Issues Closed" /> &nbsp;&nbsp;
+<img src="https://img.shields.io/github/issues-pr/Roshankrsoni/Roshankrsoni.github.io" alt="Issues PR" /> &nbsp;&nbsp;
+<br>
+<br>
 
-## 🚀 Tech Stack
+<h1 align="center">Roshan Kr Soni - Personal Portfolio</h1>
+<p align="center">
+  <strong>Senior Software Engineer | React & React Native Expert | AI Integration Specialist</strong><br>
+  A modern, high-performance portfolio highlighting my experience, projects, and services.
+</p>
 
-This modern web application is built with cutting-edge technologies for optimal performance and aesthetics:
+<p align="center">
+  <a href="https://roshankrsoni.github.io" target="_blank">
+    <img src="https://img.shields.io/badge/View_Live_Site-0A66C2?style=for-the-badge&logoColor=white" alt="Live Preview" />
+  </a>
+</p>
 
-- **Frontend Framework**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animations**: [Motion](https://motion.dev/)
-- **Icons**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+---
+
+## 🚀 Overview
+
+Welcome to my open-source personal portfolio! This repository houses the source code for my professional website, designed to showcase my journey as a Full-Stack developer. 
+
+The website is engineered with a focus on **performance**, **web accessibility**, and **smooth micro-interactions**, serving as both a digital resume and a testament to my technical aesthetics.
+
+## 🛠️ Tech Stack & Architecture
+
+This application leverages a modern web development stack to achieve sub-second load times and a seamless user experience:
+
+- **Frontend Framework**: [React 19](https://react.dev/) + [Vite 6](https://vitejs.dev/) - For lightning-fast rendering and an optimized build process.
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS framework for rapid UI development and built-in dark processing.
+- **Animations**: [Motion API](https://motion.dev/) - For fluid scroll animations and layout transitions.
+- **Icons & Assets**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+- **Hosting & CI/CD**: Automated deployment to GitHub Pages.
 
 ## 📂 Project Structure
 
-- `src/`: Contains the React source code, components, styles, and assets.
-- `old/`: A legacy backup of the previous version of my portfolio.
+```text
+├── src/
+│   ├── assets/       # Static local media & branding assets
+│   ├── components/   # Modular React components (Hero, Navbar, Experience, etc.)
+│   ├── utils/        # Helper functions and global icon mappings
+│   ├── App.tsx       # Main page orchestrating the layout
+│   └── main.tsx      # React application root entry point
+├── old/              # A legacy backup of my original v0 HTML/CSS portfolio site
+├── index.html        # HTML template & global metadata/SEO configuration
+└── vite.config.ts    # Vite bundler and path configuration
+```
 
-## 🛠️ Local Development
+## ⚙️ Local Development
 
-To run this project locally, ensure you have [Node.js](https://nodejs.org/) installed.
+Want to run this project locally, experiment with the design, or use it as inspiration? 
 
-1. **Install dependencies:**
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Roshankrsoni/Roshankrsoni.github.io.git
+   cd Roshankrsoni.github.io
+   ```
+
+2. **Install dependencies:**
    ```bash
    npm install
-   ````
+   ```
 
-2. **Start the development server:**
+3. **Start the development server:**
    ```bash
    npm run dev
    ```
-   The application will be accessible at `http://localhost:3000`.
+   *The application will boot up and be accessible locally at `http://localhost:3000`.*
 
-3. **Build for production:**
+4. **Build & Preview for Production:**
    ```bash
    npm run build
+   npm run preview
    ```
 
-## 🌐 Live Site
+## 🌐 Deployment Commands
 
-You can view the live version of this portfolio at: [https://roshankrsoni.github.io](https://roshankrsoni.github.io)
+The project utilizes `gh-pages` for seamless deployments straight from your terminal:
+
+```bash
+# Automatically builds the production dist/ bundle and pushes to the deployment branch
+npm run deploy
+```
 
 ---
-*Built with ❤️ by Roshan Kr Soni.*
+
+<div align="center">
+  <p>If you're interested in collaborating on a project or discussing opportunities, feel free to connect via my portfolio's contact section!</p>
+  <i>Built with ❤️ by Roshan Kr Soni.</i>
+</div>
