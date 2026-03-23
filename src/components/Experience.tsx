@@ -3,6 +3,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, MapPin, ExternalLink, ChevronDown } from 'lucide-react';
 import { getSkillIcon } from '../utils/icons';
 
+import psLogo from '../../assets/PS_logo_grey.webp';
+import capitaLogo from '../../assets/capita_logo.jpeg';
+import cnLogo from '../../assets/capitalnumbers_logo.jpeg';
+import asortLogo from '../../assets/1768389997397.jpeg';
+
 const experiences = [
   {
     id: 1,
@@ -11,7 +16,7 @@ const experiences = [
     date: "Aug 2023 - Present",
     location: "Remote / India",
     current: true,
-    logo: "https://i.ibb.co/hJyyRvsK/PS-logo-grey.png",
+    logo: psLogo,
     description: [
       "Spearheading the development of enterprise-grade web and mobile applications for global clients.",
       "Architecting scalable frontend solutions using Next.js and React Native, ensuring high performance and accessibility.",
@@ -26,7 +31,7 @@ const experiences = [
     date: "Apr 2022 - Feb 2023",
     location: "Remote",
     current: false,
-    logo: "https://i.ibb.co/nMPMRzvv/capita-logo.jpg",
+    logo: capitaLogo,
     description: [
       "Consulted on complex software architecture, delivering robust frontend solutions and optimizing web application performance.",
       "Streamlined development workflows and implemented scalable UI components using React.js and modern JavaScript ecosystems."
@@ -40,7 +45,7 @@ const experiences = [
     date: "Aug 2020 - Apr 2022",
     location: "Remote",
     current: false,
-    logo: "https://i.ibb.co/XrCcpK6K/capitalnumbers-logo.jpg",
+    logo: cnLogo,
     description: [
       "Engineered full-stack web applications from the ground up, focusing on responsive design and seamless user experiences.",
       "Collaborated closely with international clients to translate business requirements into scalable, high-quality technical solutions."
@@ -54,7 +59,7 @@ const experiences = [
     date: "Dec 2019 - Aug 2020",
     location: "Gurugram, Haryana, India",
     current: false,
-    logo: "https://i.ibb.co/twD9t73b/1768389997397.jpg",
+    logo: asortLogo,
     description: [
       "Played a key role in building a high-traffic Fashion E-commerce platform using the MERN stack.",
       "Developed secure REST APIs and dynamic React.js interfaces to enhance the shopping experience and streamline checkout flows."

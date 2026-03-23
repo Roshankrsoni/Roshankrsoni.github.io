@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Github, Twitter, Moon, Sun, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
+import profileImg from '../../assets/Roshan-Kr-Soni-v1.webp';
+
 const titles = [
   "React & React Native Engineer",
   "AI Integration Specialist",
@@ -47,7 +49,7 @@ export default function Navbar() {
           alt="Profile" 
           fetchPriority="high"
           className="w-10 h-10 aspect-square rounded-full cursor-pointer hover:grayscale transition-all object-cover" 
-          src="https://i.ibb.co/FtDLRjM/Screenshot-2026-03-23-at-4-38-03-PM.png" 
+          src={profileImg} 
         />
         <div className="flex flex-col">
           <h6 className="leading-tight font-medium font-dancing-script text-base">Roshan Kr Soni <span className="text-xs">👋🏼</span></h6>
