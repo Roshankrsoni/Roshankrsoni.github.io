@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: "Imperial Dade Mobile App",
     description: "A comprehensive B2B E-Commerce mobile application (iOS & Android) serving cleaning and foodservice organizations across North America. Built with React Native and Redux Thunk for seamless state management, native performance, and offline capabilities.",
-    image: "https://picsum.photos/seed/imperialdade/800/450",
+    image: "https://totalfood.com/wp-content/uploads/2024/08/Imperial-Dade-Ecommerce.webp",
     link: "https://play.google.com/store/apps/details?id=com.imperialdade.androidapp&hl=en_US",
     tags: ["React Native", "Redux Thunk", "iOS", "Android", "E-Commerce"]
   },
@@ -15,7 +15,7 @@ const projects = [
     id: 2,
     title: "Asort E-Commerce Platform",
     description: "India's first Co-Commerce platform. A full-stack fashion and lifestyle marketplace built on the MERN stack, featuring complex product catalogs, secure checkout flows, and real-time inventory management.",
-    image: "https://picsum.photos/seed/asortapp/800/450",
+    image: "https://i.ytimg.com/vi/HscGu0EH5ts/maxresdefault.jpg",
     link: "https://asort.com/home",
     tags: ["React.js", "Node.js", "MongoDB", "REST APIs", "Full Stack"]
   }
