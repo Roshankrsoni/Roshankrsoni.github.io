@@ -1,15 +1,3 @@
-<div align="center">
-  <img alt="Roshan Kr Soni Portfolio" src="assets/portfolio.png" width="800" />
-</div>
-
-<br />
-<p align="center">
-  <img src="https://img.shields.io/github/stars/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Stars" /> 
-  <img src="https://img.shields.io/github/forks/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Forks" /> 
-  <img src="https://img.shields.io/github/issues/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues" /> 
-  <img src="https://img.shields.io/github/issues-closed/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues Closed" /> 
-  <img src="https://img.shields.io/github/issues-pr/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues PR" /> 
-</p>
 
 <h1 align="center">Roshan Kr Soni - Personal Portfolio</h1>
 <p align="center">
@@ -18,12 +6,23 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/github/stars/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Stars" /> 
+  <img src="https://img.shields.io/github/forks/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Forks" /> 
+  <img src="https://img.shields.io/github/issues/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues" /> 
+  <img src="https://img.shields.io/github/issues-closed/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues Closed" /> 
+  <img src="https://img.shields.io/github/issues-pr/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues PR" /> 
+</p>
+
+<div align="center">
+  <img alt="Roshan Kr Soni Portfolio" src="assets/portfolio.png" width="800" />
+</div>
+
+<br />
+<p align="center">
   <a href="https://roshankrsoni.github.io" target="_blank">
     <img src="https://img.shields.io/badge/View_Live_Site-0A66C2?style=for-the-badge&logoColor=white" alt="Live Preview" />
   </a>
 </p>
-
----
 
 ## 🚀 Overview
 
