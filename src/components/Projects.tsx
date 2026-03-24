@@ -59,7 +59,7 @@ export default function Projects() {
         </motion.p>
       </div>
 
-      <div className="grid grid-cols-1 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <motion.div 
             key={project.id}
@@ -67,9 +67,9 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col sm:flex-row bg-slate-50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-black/50 transition-all duration-500 ease-out"
+            className="group relative flex flex-col bg-slate-50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-black/50 transition-all duration-500 ease-out h-full"
           >
-            <div className="relative sm:w-2/5 aspect-video sm:aspect-auto overflow-hidden bg-slate-200 dark:bg-slate-800 shrink-0">
+            <div className="relative w-full aspect-video overflow-hidden bg-slate-200 dark:bg-slate-800 shrink-0">
               <div className="absolute inset-0 opacity-40 dark:opacity-20 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px]"></div>
               <img 
                 alt={project.title} 
@@ -80,7 +80,7 @@ export default function Projects() {
               <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-slate-900/60 sm:from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             
-            <div className="flex flex-col grow p-4 sm:p-5 space-y-2 justify-center">
+            <div className="flex flex-col grow p-4 sm:p-5 space-y-2 justify-start">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="font-mono text-lg font-semibold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {project.title}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Code2, Smartphone, BrainCircuit, LayoutTemplate, ArrowRight } from 'lucide-react';
 
@@ -35,6 +35,13 @@ const servicesData = [
 
 export default function Services() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % servicesData.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="services" className="min-h-[50vh] w-full flex flex-col py-8 space-y-6">

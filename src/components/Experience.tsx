@@ -70,6 +70,7 @@ const experiences = [
 
 export default function Experience() {
   const [expandedId, setExpandedId] = useState<number>(1);
+  const expandedIndex = experiences.findIndex(exp => exp.id === expandedId);
 
   return (
     <section id="experience" className="w-full relative mt-8">
@@ -93,7 +94,7 @@ export default function Experience() {
         </motion.p>
       </div>
 
-      <div className="space-y-4">
+      <div className="relative">
         {experiences.map((exp, index) => (
           <motion.div 
             key={exp.id}
@@ -101,9 +102,18 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 ml-4 sm:ml-6"
+            className={`relative pl-8 border-l-2 border-transparent ml-4 sm:ml-6 ${index !== experiences.length - 1 ? 'pb-6' : ''}`}
           >
-            <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full ring-4 ring-white dark:ring-slate-950 transition-colors duration-300 ${exp.current ? 'bg-blue-500' : 'bg-slate-300 dark:bg-slate-700'}`}></div>
+            <div className="absolute -left-[2px] top-0 bottom-0 w-[2px] bg-slate-200 dark:bg-slate-800" />
+            <motion.div 
+              initial={false}
+              animate={{
+                height: expandedIndex === -1 ? '0%' : (index < expandedIndex ? '100%' : index === expandedIndex ? '20px' : '0%')
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute -left-[2px] top-0 w-[2px] bg-blue-500 origin-top"
+            />
+            <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full ring-4 ring-white dark:ring-slate-950 transition-colors duration-300 ${index <= expandedIndex ? 'bg-blue-500' : 'bg-slate-300 dark:bg-slate-700'}`}></div>
             
             <div className="group -ml-2">
               <div 
