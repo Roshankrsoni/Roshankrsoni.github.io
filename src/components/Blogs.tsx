@@ -1,8 +1,17 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const blogs = [
-    {
+  {
+    id: 0,
+    title: "Understanding Big O Notation for Frontend Developers",
+    excerpt: "Learn Big O notation essentials with simple explanations and real JavaScript examples. Understand constant, linear, and quadratic time complexities to write more efficient frontend code and ace technical interviews.",
+    date: "Jan 23, 2025",
+    readTime: "4 min read",
+    link: "https://dev.to/roshankrsoni/understanding-big-o-notation-for-frontend-developers-2pdc"
+  },
+  {
     id: 1,
     title: "A Quick way to open anything on the Web",
     excerpt: "A quick way to open common web tools is to type special .new URLs directly in your browser, such as repo.new for a new GitHub repository, docs.new for a new Google Doc, or react.new for a new...",
@@ -29,6 +38,9 @@ const blogs = [
 ];
 
 export default function Blogs() {
+  const [showAll, setShowAll] = useState(false);
+  const displayedBlogs = showAll ? blogs : blogs.slice(0, 3);
+
   return (
     <section id="blogs" className="w-full py-8">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
@@ -54,7 +66,7 @@ export default function Blogs() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-        {blogs.map((blog, index) => (
+        {displayedBlogs.map((blog, index) => (
           <motion.a 
             key={blog.id}
             href={blog.link}
@@ -100,16 +112,21 @@ export default function Blogs() {
         ))}
       </div>
       
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="flex justify-center mt-6"
-      >
-        <a className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" href="#">
-          Read More Articles
-        </a>
-      </motion.div>
+      {blogs.length > 3 && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex justify-center mt-6"
+        >
+          <button 
+            onClick={() => setShowAll(!showAll)}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer"
+          >
+            {showAll ? "Show Less" : "Read More Articles"}
+          </button>
+        </motion.div>
+      )}
     </section>
   );
 }

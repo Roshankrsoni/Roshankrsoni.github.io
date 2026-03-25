@@ -76,10 +76,16 @@ export default function Contact() {
         viewport={{ once: true }}
         className="flex justify-center"
       >
-        <a className="group inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 rounded-full text-xs font-semibold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1" href="mailto:roshanx404@gmail.com">
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            window.dispatchEvent(new Event('open-chatbox'));
+          }}
+          className="group inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 rounded-full text-xs font-semibold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 cursor-pointer w-auto"
+        >
           <span>Connect here</span>
           <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-        </a>
+        </button>
       </motion.div>
     </section>
   );
