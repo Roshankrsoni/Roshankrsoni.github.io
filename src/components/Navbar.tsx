@@ -86,7 +86,7 @@ export default function Navbar() {
           <a target="_blank" aria-label="GitHub Profile" className="cursor-pointer p-1.5 rounded-md hover:bg-slate-200 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300 transition-colors" href="https://github.com/roshankrsoni">
             <Github className="w-3.5 h-3.5" />
           </a>
-          <a href="#" aria-label="Download Resume" className="group relative hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-full text-[11px] font-mono font-bold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-md">
+          <a href="https://docs.google.com/document/d/185aAQjEHRLH5Ku7chZAARsR4zgf-CGqVy--xAiJxGpM/edit?usp=sharing" target="_blank" aria-label="Download Resume" className="group relative hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-full text-[11px] font-mono font-bold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-md">
             <span>Resume</span>
             <Download className="w-3 h-3 transition-transform duration-300 group-hover:translate-y-0.5" />
           </a>
