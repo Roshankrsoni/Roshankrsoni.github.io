@@ -6,18 +6,18 @@ import {
 } from 'react-icons/tb';
 
 const techStack = [
-  { name: "React.js", icon: TbBrandReact },
-  { name: "React Native", icon: TbBrandReactNative },
-  { name: "AI Integration", icon: TbBrain },
-  { name: "Node.js", icon: TbBrandNodejs },
-  { name: "TypeScript", icon: TbBrandTypescript },
-  { name: "JavaScript", icon: TbBrandJavascript },
-  { name: "Angular", icon: TbBrandAngular },
-  { name: "MongoDB", icon: TbDatabase },
-  { name: "PostgreSQL", icon: TbDatabase },
-  { name: "Next.js", icon: TbBrandNextjs },
-  { name: "Redux", icon: TbApi },
-  { name: "TailwindCSS", icon: TbBrandTailwind }
+  { name: "React.js", icon: TbBrandReact, color: "text-[#61DAFB]" },
+  { name: "React Native", icon: TbBrandReactNative, color: "text-[#61DAFB]" },
+  { name: "AI Integration", icon: TbBrain, color: "text-purple-500" },
+  { name: "Node.js", icon: TbBrandNodejs, color: "text-[#339933]" },
+  { name: "TypeScript", icon: TbBrandTypescript, color: "text-[#3178C6]" },
+  { name: "JavaScript", icon: TbBrandJavascript, color: "text-[#F7DF1E]" },
+  { name: "Angular", icon: TbBrandAngular, color: "text-[#DD0031]" },
+  { name: "MongoDB", icon: TbDatabase, color: "text-[#47A248]" },
+  { name: "PostgreSQL", icon: TbDatabase, color: "text-[#4169E1]" },
+  { name: "Next.js", icon: TbBrandNextjs, color: "text-slate-900 dark:text-white" },
+  { name: "Redux", icon: TbApi, color: "text-[#764ABC]" },
+  { name: "TailwindCSS", icon: TbBrandTailwind, color: "text-[#06B6D4]" }
 ];
 
 export default function Hero() {
@@ -54,19 +54,29 @@ export default function Hero() {
         <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent dark:from-slate-950 z-10 pointer-events-none"></div>
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent dark:from-slate-950 z-10 pointer-events-none"></div>
         
-        <div className="flex overflow-hidden">
-          <motion.div 
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ ease: "linear", duration: 20, repeat: Infinity }}
-            className="flex gap-3 items-center py-2 whitespace-nowrap"
+        <style>{`
+          @keyframes slide-marquee {
+            from { transform: translateX(0%); }
+            to { transform: translateX(-50%); }
+          }
+          .animate-slide-marquee {
+            animation: slide-marquee 20s linear infinite;
+          }
+          .group:hover .animate-slide-marquee {
+            animation-play-state: paused !important;
+          }
+        `}</style>
+        <div className="flex overflow-hidden group">
+          <div 
+            className="flex gap-3 items-center py-2 whitespace-nowrap animate-slide-marquee"
           >
             {[...techStack, ...techStack].map((tech, i) => (
-              <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 shadow-sm">
-                <tech.icon className="w-3.5 h-3.5" strokeWidth={1.2} />
+              <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 shadow-sm hover:scale-105 transition-transform cursor-default">
+                <tech.icon className={`w-3.5 h-3.5 ${tech.color}`} strokeWidth={1.2} />
                 <span className="font-medium text-[11px] font-mono">{tech.name}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </motion.div>
     </div>
