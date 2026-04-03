@@ -78,7 +78,7 @@ export default function Chatbox() {
                 <MessageCircle className="w-4 h-4" />
                 Ask a Question
               </h3>
-              <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer">
+              <button aria-label="Close Chat" onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -88,7 +88,7 @@ export default function Chatbox() {
                 <div className="flex flex-col items-center justify-center py-8 text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-emerald-500" />
                   <p className="text-slate-800 dark:text-slate-200 font-medium text-sm">Message sent successfully!</p>
-                  <p className="text-xs text-slate-500">I will get back to you shortly.</p>
+                  <p className="text-xs text-slate-600">I will get back to you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">

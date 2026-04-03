@@ -21,8 +21,19 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              // Split vendor libraries into their own chunk
-              return 'vendor';
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'react-core';
+              }
+              if (id.includes('motion') || id.includes('framer-motion')) {
+                return 'motion';
+              }
+              if (id.includes('lucide-react') || id.includes('react-icons')) {
+                return 'icons';
+              }
+              if (id.includes('mixpanel-browser')) {
+                return 'mixpanel';
+              }
+              return 'vendor-core';
             }
           }
         }

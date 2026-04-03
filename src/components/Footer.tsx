@@ -15,7 +15,7 @@ export default function Footer() {
             </h2>
             <div className="flex flex-col gap-y-1 mt-3">
               <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Senior Experience Engineer</p>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400">Ranchi, Jharkhand, India</p>
+              <p className="text-[10px] text-slate-600 dark:text-slate-400">Ranchi, Jharkhand, India</p>
             </div>
           </div>
 
@@ -89,10 +89,10 @@ export default function Footer() {
           Mr RXN
         </motion.h1>
       </div>
-      <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+      <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-slate-600 dark:text-slate-400 font-medium">
         <span>© {year} Roshan Kr Soni. All rights reserved.</span>
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <p>Built with ❤️ by <a target="_blank" rel="noopener noreferrer" className="text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="https://www.linkedin.com/in/roshankrsoni/">Roshan Kr Soni</a></p>
+          <p>Built with ❤️ by <a target="_blank" rel="noopener noreferrer" className="text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline underline-offset-2" href="https://www.linkedin.com/in/roshankrsoni/">Roshan Kr Soni</a></p>
         </div>
       </div>
       </footer>

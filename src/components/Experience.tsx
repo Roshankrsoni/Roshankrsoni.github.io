@@ -134,18 +134,18 @@ export default function Experience() {
                     </h3>
                     <div className="text-slate-600 dark:text-slate-400 font-medium text-xs mt-1 flex items-center gap-1">
                       {exp.company}
-                      <ExternalLink className="w-2.5 h-2.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors" />
+                      <ExternalLink className="w-2.5 h-2.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" />
                     </div>
                   </div>
                 </div>
                 
-                <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start w-full sm:w-auto text-[11px] text-slate-500 font-mono gap-1 mt-2 sm:mt-0">
+                <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start w-full sm:w-auto text-[11px] text-slate-600 dark:text-slate-400 font-mono gap-1 mt-2 sm:mt-0">
                   <div className="flex flex-col sm:items-end gap-1">
                     <div className="flex items-center gap-1.5">
                       <Calendar className="w-3 h-3" />
                       <span>{exp.date}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-slate-400">
+                    <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                       📍
                       <span>{exp.location}</span>
                     </div>
@@ -155,7 +155,7 @@ export default function Experience() {
                     transition={{ duration: 0.3 }}
                     className="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 mt-1 sm:mt-1.5"
                   >
-                    <ChevronDown className="w-4 h-4 text-slate-400" />
+                    <ChevronDown className="w-4 h-4 text-slate-500 dark:text-slate-400" />
                   </motion.div>
                 </div>
               </div>

@@ -55,7 +55,7 @@ export default function Navbar() {
         />
         <div className="flex flex-col min-w-0">
           <h5 className="leading-tight font-medium font-dancing-script text-base sm:text-lg whitespace-nowrap truncate">Roshan Kr Soni <span className="text-[12px] sm:text-sm">👋🏼</span></h5>
-          <div className="text-slate-500 dark:text-slate-400 text-[10px] font-medium h-3.5 flex items-center overflow-hidden min-w-0">
+          <div className="text-slate-600 dark:text-slate-400 text-[10px] font-medium h-3.5 flex items-center overflow-hidden min-w-0">
             <AnimatePresence mode="wait">
               <motion.span
                 key={titleIndex}
@@ -75,7 +75,7 @@ export default function Navbar() {
       <div className="items-center gap-2 sm:gap-6 flex shrink-0">
         <nav className="items-center gap-4 sm:flex hidden">
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="capitalize text-[11px] font-semibold tracking-wide text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors">
+            <a key={item} href={`#${item.toLowerCase()}`} className="capitalize text-[11px] font-semibold tracking-wide text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors">
               {item}
             </a>
           ))}
