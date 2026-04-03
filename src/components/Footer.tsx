@@ -1,10 +1,12 @@
 import { Twitter, Linkedin, Mail, Github, Instagram } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export default function Footer() {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
   return (
-    <footer className="max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800 pt-6 pb-4">
+    <>
+      <footer className="w-full max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800 pt-6 pb-4">
       <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-6">
         <div className="flex flex-col items-start gap-y-4 md:w-1/3">
           <div>
@@ -75,13 +77,25 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
+      {/* Cinematic Name Overlay */}
+      <div className="w-full relative overflow-hidden flex justify-center items-end pointer-events-none mt-8 sm:mt-12 pb-2">
+        <motion.h1 
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="text-[18vw] sm:text-[16vw] font-black leading-[0.75] tracking-[-.05em] text-transparent bg-clip-text bg-gradient-to-b from-slate-200 to-slate-50 dark:from-slate-800 dark:to-slate-950 select-none whitespace-nowrap"
+        >
+          Mr RXN
+        </motion.h1>
+      </div>
       <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
         <span>© {year} Roshan Kr Soni. All rights reserved.</span>
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <p>Built with ❤️ by <a target="_blank" rel="noopener noreferrer" className="text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="https://www.linkedin.com/in/roshankrsoni/">Roshan Kr Soni</a></p>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 }

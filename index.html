@@ -60,6 +60,13 @@
      <meta content=#ffffff name=msapplication-TileColor>
      <meta content=assets/Roshan-Kr-Soni-v1.webp name=msapplication-TileImage>
      <meta content=#ffffff name=theme-color>
+     <script>
+          if (localStorage.getItem('theme') !== 'light') {
+               document.documentElement.classList.add('dark');
+          } else {
+               document.documentElement.classList.remove('dark');
+          }
+     </script>
 </head>
 
 <body>
