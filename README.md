@@ -1,9 +1,13 @@
 <div align="center">
+  <img alt="Roshan Kr Soni Portfolio" src="assets/portfolio.png" width="800" style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.15);" />
+  
+  <br /><br />
+
   <h1 align="center"><a href="https://roshankrsoni.github.io" target="_blank" style="text-decoration:none; color:inherit;">Roshan Kr Soni - Personal Portfolio</a></h1>
   
   <p align="center">
-    <strong>Senior Software Engineer | React & React Native Expert | AI Integration Specialist</strong><br>
-    A modern, high-performance portfolio highlighting my experience, projects, and services.
+    <strong>Senior Software Engineer | React & React Native | AI Integration</strong><br>
+    My personal portfolio built to showcase my work, experience, and general coding aesthetic.
   </p>
 
   <p align="center">
@@ -16,94 +20,72 @@
     <img src="https://img.shields.io/github/stars/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Stars" /> 
     <img src="https://img.shields.io/github/forks/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Forks" /> 
     <img src="https://img.shields.io/github/issues/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues" /> 
-    <img src="https://img.shields.io/github/issues-closed/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues Closed" /> 
     <img src="https://img.shields.io/github/issues-pr/Roshankrsoni/Roshankrsoni.github.io?style=flat-square" alt="Issues PR" /> 
   </p>
-
-  <br />
-
-  <img alt="Roshan Kr Soni Portfolio Showcase" src="assets/portfolio.png" width="800" style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.15);" />
 </div>
 
 ---
 
-## 🚀 Overview
+## 👋 Hey there!
 
-Welcome to my open-source personal portfolio! This repository houses the source code for my professional website, designed to showcase my journey as a Full-Stack developer. 
+Welcome to the repo for my personal website. I built this to serve as my digital resume, focusing heavily on clean design, fast load times, and good accessibility. 
 
-The website is engineered with a strict focus on **performance**, **web accessibility**, and **smooth micro-interactions**, serving as both a digital resume and a testament to my technical aesthetics.
+The site natively supports system-based Dark and Light modes, fluid scroll animations, and responsive layouts for mobile viewing.
 
-## 🛠️ Tech Stack & Architecture
+---
 
-This application leverages a modern web development stack to achieve sub-second load times and a seamless user experience:
+## ⚡ Performance
 
-- **Frontend Framework**: [React 19](https://react.dev/) + [Vite 6](https://vitejs.dev/) - For lightning-fast rendering and an optimized build process.
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS framework for rapid UI development and built-in dark processing.
-- **Animations**: [Motion API](https://motion.dev/) - For fluid scroll animations and layout transitions.
-- **Icons & Assets**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
-- **Hosting & CI/CD**: Automated deployments directly to GitHub Pages.
+I've put a lot of effort into making this site fast and accessible. By aggressively splitting code chunks in Vite and ensuring solid ARIA labels throughout the UI, the site currently holds a perfect 100/100 across the board on Lighthouse. Check it out:
 
-## 📂 Project Structure
+<div align="center">
+  <img alt="Lighthouse Score" src="assets/lighthouse-score.png" width="800" style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.15);" />
+</div>
 
-```text
-├── src/
-│   ├── assets/       # Static local media & branding assets
-│   ├── components/   # Modular React components (Hero, Navbar, Experience, etc.)
-│   ├── utils/        # Helper functions and global icon mappings
-│   ├── App.tsx       # Main page orchestrating the layout
-│   └── main.tsx      # React application root entry point
-├── old/              # A legacy backup of my original v0 HTML/CSS portfolio site
-├── index.html        # HTML template & global metadata/SEO configuration
-└── vite.config.ts    # Vite bundler and path configuration
-```
+<br />
 
-## ⚙️ Local Development
+---
 
-Want to run this project locally, experiment with the design, or use it as inspiration? 
+## 🛠️ Built With
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Roshankrsoni/Roshankrsoni.github.io.git
-   cd Roshankrsoni.github.io
-   ```
+Nothing crazy—just solid modern tools:
+- **React 19 & Vite 6** - For the core engine and lightning-fast builds.
+- **Tailwind CSS v4** - Makes styling the dark mode and responsive layouts a breeze.
+- **Motion API** - For all the slick micro-animations.
+- **Lucide & React Icons**
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+---
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   *The application will boot up and be accessible locally at `http://localhost:3000`.*
+## 🏃‍♂️ Running it locally
 
-4. **Build & Preview for Production:**
-   ```bash
-   npm run build
-   npm run preview
-   ```
-
-## 🌐 Deployment Commands
-
-The project utilizes `gh-pages` for seamless deployments straight from your terminal:
+If you want to spin this up on your own machine to poke around the code:
 
 ```bash
-# Automatically builds the production dist/ bundle and pushes to the deployment branch
+# Clone the repository
+git clone https://github.com/Roshankrsoni/Roshankrsoni.github.io.git
+cd Roshankrsoni.github.io
+
+# Install deps
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+To build and deploy to GitHub Pages, I just use:
+```bash
 npm run deploy
 ```
 
 ---
 
-## 📝 Attribution & Usage
+## ✌️ Feel free to use it!
 
-This portfolio is open-sourced for the community. You are welcome to explore the code, experiment with it, and use it as inspiration!
+This code is open-sourced, so you're totally welcome to use it as a template for your own portfolio. 
 
-**⚠️ Important:** If you decide to fork this repository or use any part of this design as a template for your own portfolio or commercial project, **you must give explicit credit** to the original creator ([Roshan Kr Soni](https://github.com/Roshankrsoni)) in your repository's root `README.md` and in your site's footer. Please ensure you change all personal information, assets, and branding before deploying your version.
+All I ask is that you swap out my personal details and give me a quick credit somewhere (like your footer or README).
 
----
-
+<br />
 <div align="center">
-  <p>If you're interested in collaborating on a project or discussing opportunities, feel free to connect via my portfolio's contact section!</p>
   <i>Built with ❤️ by Roshan Kr Soni.</i>
 </div>
