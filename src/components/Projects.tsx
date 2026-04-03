@@ -9,7 +9,7 @@ const projects = [
     id: 1,
     title: "Imperial Dade Web & Mobile App",
     description: "A comprehensive B2B E-Commerce mobile application (iOS & Android) serving cleaning and foodservice organizations across North America. Built with React Native and Redux Thunk for seamless state management, native performance, and offline capabilities.",
-    image: "https://totalfood.com/wp-content/uploads/2024/08/Imperial-Dade-Ecommerce.webp",
+    image: "/assets/Imperial-Dade-Ecommerce.webp",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.imperialdade.androidapp&hl=en_US",
     appStoreLink: "https://apps.apple.com/us/app/imperial-dade/id6475366936",
     link: "https://imperialdade.com",
@@ -35,6 +35,20 @@ const projects = [
     tags: ["React.js", "TailwindCSS", "Motion", "Vercel"] // Vercel icon works as a general hosting icon
   }
 ];
+const getSkillColor = (skill: string) => {
+  const s = skill.toLowerCase();
+  if (s.includes('node')) return 'text-emerald-500';
+  if (s.includes('react')) return 'text-[#61DAFB]';
+  if (s.includes('mongo')) return 'text-green-500';
+  if (s.includes('redux')) return 'text-purple-500';
+  if (s.includes('ios')) return 'text-slate-500 dark:text-slate-200';
+  if (s.includes('android')) return 'text-emerald-400';
+  if (s.includes('tailwind')) return 'text-cyan-400';
+  if (s.includes('motion')) return 'text-pink-500';
+  if (s.includes('full stack')) return 'text-fuchsia-500';
+  if (s.includes('api')) return 'text-indigo-400';
+  return 'text-slate-500 dark:text-slate-400';
+};
 
 export default function Projects() {
   return (
@@ -88,21 +102,21 @@ export default function Projects() {
                 </h3>
                 <div className="flex items-center gap-2">
                   {project.playStoreLink && (
-                    <a target="_blank" aria-label={`View ${project.title} on Play Store`} href={project.playStoreLink} className="p-1.5 bg-white dark:bg-slate-800 rounded-full shadow-sm text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors shrink-0">
+                    <a target="_blank" aria-label={`View ${project.title} on Play Store`} href={project.playStoreLink} className="p-1.5 bg-white dark:bg-slate-800 rounded-full shadow-sm text-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors shrink-0">
                       <BiLogoPlayStore className="w-3.5 h-3.5" />
                     </a>
                   )}
                   {project.appStoreLink && (
-                    <a target="_blank" aria-label={`View ${project.title} on App Store`} href={project.appStoreLink} className="p-1.5 bg-white dark:bg-slate-800 rounded-full shadow-sm text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors shrink-0">
+                    <a target="_blank" aria-label={`View ${project.title} on App Store`} href={project.appStoreLink} className="p-1.5 bg-white dark:bg-slate-800 rounded-full shadow-sm text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shrink-0">
                       <FaAppStore className="w-3.5 h-3.5" />
                     </a>
                   )}
                   {project.githubLink && (
-                    <a target="_blank" aria-label={`View ${project.title} on GitHub`} href={project.githubLink} className="p-1.5 bg-white dark:bg-slate-800 rounded-full shadow-sm text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors shrink-0">
+                    <a target="_blank" aria-label={`View ${project.title} on GitHub`} href={project.githubLink} className="p-1.5 bg-white dark:bg-slate-800 rounded-full shadow-sm text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors shrink-0">
                       <Github className="w-3.5 h-3.5" />
                     </a>
                   )}
-                  <a target="_blank" aria-label={`View ${project.title}`} href={project.link} className="p-1.5 bg-white dark:bg-slate-800 rounded-full shadow-sm text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors shrink-0">
+                  <a target="_blank" aria-label={`View ${project.title}`} href={project.link} className="p-1.5 bg-white dark:bg-slate-800 rounded-full shadow-sm text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shrink-0">
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -117,7 +131,7 @@ export default function Projects() {
                   const Icon = getSkillIcon(tag);
                   return (
                     <span key={i} className="flex items-center gap-1 px-2 py-0.5 text-[9px] uppercase tracking-wider font-mono rounded-md bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400">
-                      <Icon className="w-3 h-3" strokeWidth={1.2} />
+                      <Icon className={`w-3 h-3 ${getSkillColor(tag)}`} strokeWidth={1.2} />
                       {tag}
                     </span>
                   );
