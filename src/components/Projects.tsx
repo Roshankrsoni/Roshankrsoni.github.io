@@ -4,12 +4,15 @@ import { getSkillIcon } from '../utils/icons';
 import portfolioImg from '../../assets/portfolio.png';
 import { BiLogoPlayStore } from 'react-icons/bi';
 import { FaAppStore } from 'react-icons/fa';
+
+import imperialDadeImg from '../../assets/Imperial-Dade-Ecommerce.webp';
+
 const projects = [
   {
     id: 1,
     title: "Imperial Dade Web & Mobile App",
     description: "A comprehensive B2B E-Commerce mobile application (iOS & Android) serving cleaning and foodservice organizations across North America. Built with React Native and Redux Thunk for seamless state management, native performance, and offline capabilities.",
-    image: "/assets/Imperial-Dade-Ecommerce.webp",
+    image: imperialDadeImg,
     playStoreLink: "https://play.google.com/store/apps/details?id=com.imperialdade.androidapp&hl=en_US",
     appStoreLink: "https://apps.apple.com/us/app/imperial-dade/id6475366936",
     link: "https://imperialdade.com",
