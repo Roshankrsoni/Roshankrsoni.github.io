@@ -19,7 +19,7 @@ const projects = [
     id: 2,
     title: "Asort E-Commerce Platform & App",
     description: "India's first Co-Commerce platform. A full-stack fashion and lifestyle marketplace built on the MERN stack, featuring complex product catalogs, secure checkout flows, and real-time inventory management.",
-    image: "https://i.ytimg.com/vi/HscGu0EH5ts/maxresdefault.jpg",
+    image: "https://i.ytimg.com/vi/HscGu0EH5ts/hqdefault.jpg",
     link: "https://asort.com/home",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asort.asortplus&hl=en_IN",
     appStoreLink: "https://apps.apple.com/in/app/asort/id1474066670?l=hi",
@@ -74,6 +74,7 @@ export default function Projects() {
               <img 
                 alt={project.title} 
                 loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-1 opacity-90 group-hover:opacity-100" 
                 src={project.image} 
               />
