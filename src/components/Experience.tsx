@@ -13,8 +13,9 @@ const experiences = [
     id: 1,
     role: "Senior Experience Engineer",
     company: "Publicis Sapient",
+    companyUrl: "https://en.wikipedia.org/wiki/Publicis_Sapient",
     date: "Aug 2023 - Present",
-    location: "Remote / India",
+    location: "Remote / Gurugram, India",
     current: true,
     logo: psLogo,
     description: [
@@ -28,8 +29,9 @@ const experiences = [
     id: 2,
     role: "Software Consultant",
     company: "Capita",
+    companyUrl: "https://en.wikipedia.org/wiki/Capita",
     date: "Apr 2022 - Feb 2023",
-    location: "Remote",
+    location: "Remote / Pune, India",
     current: false,
     logo: capitaLogo,
     description: [
@@ -42,8 +44,9 @@ const experiences = [
     id: 3,
     role: "Software Engineer",
     company: "Capital Numbers",
+    companyUrl: "https://www.capitalnumbers.com/",
     date: "Aug 2020 - Apr 2022",
-    location: "Remote",
+    location: "Remote / Kolkata, India",
     current: false,
     logo: cnLogo,
     description: [
@@ -56,6 +59,7 @@ const experiences = [
     id: 4,
     role: "SDE 1",
     company: "Asort.com",
+    companyUrl: "https://asort.com/",
     date: "Dec 2019 - Aug 2020",
     location: "Gurugram, Haryana, India",
     current: false,
@@ -132,10 +136,22 @@ export default function Experience() {
                         </span>
                       )}
                     </h3>
-                    <div className="text-slate-600 dark:text-slate-400 font-medium text-xs mt-1 flex items-center gap-1">
-                      {exp.company}
-                      <ExternalLink className="w-2.5 h-2.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" />
-                    </div>
+                    {exp.companyUrl ? (
+                      <a 
+                        href={exp.companyUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 font-medium text-xs mt-1 flex items-center gap-1 w-fit transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {exp.company}
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                    ) : (
+                      <div className="text-slate-600 dark:text-slate-400 font-medium text-xs mt-1 flex items-center gap-1">
+                        {exp.company}
+                      </div>
+                    )}
                   </div>
                 </div>
                 

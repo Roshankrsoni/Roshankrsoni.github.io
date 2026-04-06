@@ -47,12 +47,14 @@ export default function Navbar() {
       className="w-full md:max-w-5xl px-4 sm:px-4 rounded-2xl py-3 mx-auto sticky top-2 flex items-center justify-between z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md sm:mt-8"
     >
       <div className="flex items-center gap-2.5 min-w-0">
-        <img 
-          alt="Profile" 
-          fetchPriority="high"
-          className="w-10 h-10 aspect-square rounded-full cursor-pointer hover:grayscale transition-all object-cover shrink-0" 
-          src={profileImg} 
-        />
+        <a href="https://www.instagram.com/roshankrsoni/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
+          <img 
+            alt="Profile" 
+            fetchPriority="high"
+            className="w-10 h-10 aspect-square rounded-full cursor-pointer hover:grayscale transition-all object-cover shrink-0" 
+            src={profileImg} 
+          />
+        </a>
         <div className="flex flex-col min-w-0">
           <h5 className="leading-tight font-medium font-dancing-script text-base sm:text-lg whitespace-nowrap truncate">Roshan Kr Soni <span className="text-[12px] sm:text-sm">👋🏼</span></h5>
           <div className="text-slate-600 dark:text-slate-400 text-[10px] font-medium h-3.5 flex items-center overflow-hidden min-w-0">
