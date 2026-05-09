@@ -11,7 +11,7 @@ const projects = [
   {
     id: 1,
     title: "Imperial Dade Web & Mobile App",
-    description: "A comprehensive B2B E-Commerce mobile application (iOS & Android) serving cleaning and foodservice organizations across North America. Built with React Native and Redux Thunk for seamless state management, native performance, and offline capabilities.",
+    description: "A production‑grade B2B E‑Commerce application for iOS, Android, and web, serving cleaning and foodservice organizations across North America. Built with React Native and Redux Thunk, it supports offline usage, robust search, and frictionless ordering for high‑volume customers.",
     image: imperialDadeImg,
     playStoreLink: "https://play.google.com/store/apps/details?id=com.imperialdade.androidapp&hl=en_US",
     appStoreLink: "https://apps.apple.com/us/app/imperial-dade/id6475366936",
@@ -21,7 +21,7 @@ const projects = [
   {
     id: 2,
     title: "Asort E-Commerce Platform & App",
-    description: "India's first Co-Commerce platform. A full-stack fashion and lifestyle marketplace built on the MERN stack, featuring complex product catalogs, secure checkout flows, and real-time inventory management.",
+    description: "A full‑stack Co‑Commerce platform powering a fashion and lifestyle marketplace, built on the MERN stack. It handles complex product catalogs, secure checkout, and real‑time inventory, while remaining performant under heavy user traffic.",
     image: "https://i.ytimg.com/vi/HscGu0EH5ts/hqdefault.jpg",
     link: "https://asort.com/home",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asort.asortplus&hl=en_IN",
@@ -30,8 +30,8 @@ const projects = [
   },
   {
     id: 3,
-    title: "Roshan Kr Soni - Portfolio",
-    description: "A modern, high-performance personal portfolio built with React 19, Tailwind CSS v4, and the Motion API. Engineered with a strict focus on web accessibility, fluid scroll animations, and seamless micro-interactions.",
+    title: "Personal Portfolio",
+    description: "A modern, performance‑focused portfolio built with React 19, Tailwind CSS v4, and the Motion API. Designed with accessibility, smooth scroll‑based animations, and subtle micro‑interactions to feel fast and polished on every device.",
     image: portfolioImg,
     link: "https://roshankrsoni.github.io",
     githubLink: "https://github.com/Roshankrsoni/Roshankrsoni.github.io",

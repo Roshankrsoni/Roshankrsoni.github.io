@@ -6,18 +6,18 @@ import {
 } from 'react-icons/tb';
 
 const techStack = [
-  { name: "React.js", icon: TbBrandReact, color: "text-[#61DAFB]" },
+  { name: "React", icon: TbBrandReact, color: "text-[#61DAFB]" },
   { name: "React Native", icon: TbBrandReactNative, color: "text-[#61DAFB]" },
-  { name: "AI Integration", icon: TbBrain, color: "text-purple-500" },
-  { name: "Node.js", icon: TbBrandNodejs, color: "text-[#339933]" },
+  { name: "Next.js", icon: TbBrandNextjs, color: "text-slate-900 dark:text-white" },
   { name: "TypeScript", icon: TbBrandTypescript, color: "text-[#3178C6]" },
+  { name: "Node.js", icon: TbBrandNodejs, color: "text-[#339933]" },
   { name: "JavaScript", icon: TbBrandJavascript, color: "text-[#F7DF1E]" },
+  { name: "AI Integration", icon: TbBrain, color: "text-purple-500" },
+  { name: "Redux", icon: TbApi, color: "text-[#764ABC]" },
+  { name: "TailwindCSS", icon: TbBrandTailwind, color: "text-[#06B6D4]" },
   { name: "Angular", icon: TbBrandAngular, color: "text-[#DD0031]" },
   { name: "MongoDB", icon: TbDatabase, color: "text-[#47A248]" },
-  { name: "PostgreSQL", icon: TbDatabase, color: "text-[#4169E1]" },
-  { name: "Next.js", icon: TbBrandNextjs, color: "text-slate-900 dark:text-white" },
-  { name: "Redux", icon: TbApi, color: "text-[#764ABC]" },
-  { name: "TailwindCSS", icon: TbBrandTailwind, color: "text-[#06B6D4]" }
+  { name: "PostgreSQL", icon: TbDatabase, color: "text-[#4169E1]" }
 ];
 
 export default function Hero() {
@@ -41,7 +41,7 @@ export default function Hero() {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <p className="text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
-          I’m a Senior Software Engineer focused on React, React Native and Full‑stack development. I design and build high‑performance web and mobile applications, integrating AI to create smart, scalable, and user‑centric digital products.
+          A Senior Software Engineer specializing in React, React Native, and modern full‑stack architectures. I design and ship high‑performance web and mobile apps, integrating AI where it makes sense to deliver fast, reliable, and genuinely useful digital experiences.
         </p>
       </motion.div>
 

@@ -5,28 +5,28 @@ import { Code2, Smartphone, BrainCircuit, LayoutTemplate, ArrowRight } from 'luc
 const servicesData = [
   {
     title: "Mobile App Development",
-    description: "Cross‑platform, high‑performance iOS and Android apps using React Native, with smooth native‑like interactions and offline‑first experiences.",
+    description: "Building high‑quality React Native apps for iOS and Android with smooth UX, offline‑first patterns, and maintainable codebases ready for long‑term growth.",
     icon: Smartphone,
     number: "01",
     color: "text-rose-500"
   },
   {
     title: "AI Integration & Automation",
-    description: "Enhancing applications with cutting-edge AI capabilities, integrating LLMs and machine learning APIs to build intelligent, future-ready products.",
+    description: "Embedding AI into existing products and workflows—recommendation systems, smart search, and AI‑assisted features—without compromising reliability or performance.",
     icon: BrainCircuit,
     number: "02",
     color: "text-emerald-500"
   },
   {
     title: "Frontend Web Development",
-    description: "Crafting responsive, accessible, and pixel-perfect web interfaces using React.js, Next.js, and modern state management architectures.",
+    description: "Crafting responsive, accessible, and pixel‑perfect interfaces using React and Next.js, with clean state management and attention to real‑world performance budgets.",
     icon: LayoutTemplate,
     number: "03",
     color: "text-violet-500"
   },
   {
     title: "Full Stack Architecture",
-    description: "Designing robust backend systems and APIs with Node.js, Express, and scalable databases like PostgreSQL and MongoDB.",
+    description: "Designing end‑to‑end solutions using Node.js, modern databases, and cloud‑ready patterns, with clear boundaries between services and a focus on observability.",
     icon: Code2,
     number: "04",
     color: "text-blue-500"
