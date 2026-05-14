@@ -29,19 +29,38 @@ export default function Hero() {
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-3xl md:text-4xl font-medium leading-tight tracking-tight text-slate-900 dark:text-slate-50">
-          <span className="font-dancing-script font-bold text-blue-600 dark:text-blue-400">Intelligent</span> engineering <br className="hidden md:block" />
-          <span className="font-dancing-script font-bold text-emerald-600 dark:text-emerald-400">Seamless</span> Mobile experiences <br className="hidden md:block" />
-         and Web Solutions that <span className="font-dancing-script font-bold text-amber-600 dark:text-amber-400">Scale</span>
+          <span className="font-dancing-script font-bold text-blue-600 dark:text-blue-400 relative">
+            Intelligent
+          </span> engineering <br className="hidden md:block" />
+          <span className="font-dancing-script font-bold text-emerald-600 dark:text-emerald-400 relative">
+            for
+          </span> <span className="relative inline-block"><span className="relative z-10">AI-powered</span><span className="absolute bottom-1 left-0 w-full h-2 bg-rose-400/30 dark:bg-rose-500/30 -z-10 rounded-full"></span></span> Web and Mobile <br className="hidden md:block" />
+          <span className="font-dancing-script font-bold text-indigo-600 dark:text-indigo-400 relative">
+            Apps
+          </span> that <span className="font-dancing-script font-bold text-amber-600 dark:text-amber-400 relative">
+            Scale
+            <motion.svg className="absolute w-full h-3 -bottom-1 left-0 text-amber-500/60 dark:text-amber-400/60" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <motion.path 
+                d="M0 5 Q 50 10 100 5" 
+                stroke="currentColor" 
+                strokeWidth="4" 
+                fill="none"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+              />
+            </motion.svg>
+          </span>
         </h1>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <p className="text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
-          A Senior Software Engineer specializing in React, React Native, and modern full‑stack architectures. I design and ship high‑performance web and mobile apps, integrating AI where it makes sense to deliver fast, reliable, and genuinely useful digital experiences.
+          A Senior Software Engineer specializing in <span className="relative z-0 whitespace-nowrap"><span className="relative z-10 font-medium text-slate-800 dark:text-slate-200">React, React Native</span></span>, and <span className="relative z-0 whitespace-nowrap"><span className="relative z-10 font-medium text-slate-800 dark:text-slate-200">modern full‑stack architectures</span></span>. I design and ship high‑performance web and mobile apps, <span className="relative z-0 whitespace-nowrap"><span className="relative z-10 font-medium text-slate-800 dark:text-slate-200">integrating AI</span><span className="absolute bottom-0 left-0 w-full h-1.5 bg-emerald-400/40 dark:bg-emerald-500/40 -z-10"></span></span> where it makes sense to deliver fast, reliable, and genuinely useful digital experiences.
         </p>
       </motion.div>
 

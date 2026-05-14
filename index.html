@@ -59,12 +59,20 @@
      <link href=assets/Roshan-Kr-Soni-v1.webp rel=icon sizes=16x16 type=image/png>
      <meta content=#ffffff name=msapplication-TileColor>
      <meta content=assets/Roshan-Kr-Soni-v1.webp name=msapplication-TileImage>
-     <meta content=#ffffff name=theme-color>
+     <meta id="theme-color-meta" content="#020617" name="theme-color">
      <script>
-          if (localStorage.getItem('theme') !== 'light') {
+          try {
+               var theme = localStorage.getItem('theme');
+               if (theme === 'light') {
+                    document.documentElement.classList.remove('dark');
+                    document.getElementById('theme-color-meta').setAttribute('content', '#ffffff');
+               } else {
+                    document.documentElement.classList.add('dark');
+                    document.getElementById('theme-color-meta').setAttribute('content', '#020617');
+                    if (!theme) localStorage.setItem('theme', 'dark');
+               }
+          } catch (e) {
                document.documentElement.classList.add('dark');
-          } else {
-               document.documentElement.classList.remove('dark');
           }
      </script>
 </head>

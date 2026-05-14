@@ -34,9 +34,11 @@ export default function Navbar() {
     if (isDark) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+      document.getElementById('theme-color-meta')?.setAttribute('content', '#020617');
     } else {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
+      document.getElementById('theme-color-meta')?.setAttribute('content', '#ffffff');
     }
   }, [isDark]);
 
