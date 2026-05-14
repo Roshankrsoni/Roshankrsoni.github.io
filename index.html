@@ -59,20 +59,28 @@
      <link href=./assets/Roshan-Kr-Soni-v1-Dp4Xgn1_.webp rel=icon sizes=16x16 type=image/png>
      <meta content=#ffffff name=msapplication-TileColor>
      <meta content=./assets/Roshan-Kr-Soni-v1-Dp4Xgn1_.webp name=msapplication-TileImage>
-     <meta content=#ffffff name=theme-color>
+     <meta id="theme-color-meta" content="#020617" name="theme-color">
      <script>
-          if (localStorage.getItem('theme') !== 'light') {
+          try {
+               var theme = localStorage.getItem('theme');
+               if (theme === 'light') {
+                    document.documentElement.classList.remove('dark');
+                    document.getElementById('theme-color-meta').setAttribute('content', '#ffffff');
+               } else {
+                    document.documentElement.classList.add('dark');
+                    document.getElementById('theme-color-meta').setAttribute('content', '#020617');
+                    if (!theme) localStorage.setItem('theme', 'dark');
+               }
+          } catch (e) {
                document.documentElement.classList.add('dark');
-          } else {
-               document.documentElement.classList.remove('dark');
           }
      </script>
-  <script type="module" crossorigin src="./assets/index-CKKLxNG4.js"></script>
+  <script type="module" crossorigin src="./assets/index-DIkzRZA5.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/vendor-core-Bb8JjhAW.js">
   <link rel="modulepreload" crossorigin href="./assets/react-core-D4oMcn5M.js">
   <link rel="modulepreload" crossorigin href="./assets/motion-B-jhPLk8.js">
   <link rel="modulepreload" crossorigin href="./assets/mixpanel-C2dcNarU.js">
-  <link rel="stylesheet" crossorigin href="./assets/index-CdZZj1Ws.css">
+  <link rel="stylesheet" crossorigin href="./assets/index-CEMjznjl.css">
 </head>
 
 <body>
