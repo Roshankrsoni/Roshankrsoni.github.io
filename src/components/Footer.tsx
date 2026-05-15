@@ -90,7 +90,16 @@ export default function Footer() {
         </motion.h1>
       </div>
       <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-slate-600 dark:text-slate-400 font-medium">
-        <span>© {year} Roshan Kr Soni. All rights reserved.</span>
+        <span className="flex items-center gap-2">
+          © {year} Roshan Kr Soni. All rights reserved.
+          <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block" aria-label="Web Hit Counter">
+            <img 
+              src={`https://counter.websiteout.com/compte.php?S=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'https://roshankrsoni.github.io/')}&C=20&D=0&N=20000&M=1`} 
+              alt="web hit counter" 
+              className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+            />
+          </a>
+        </span>
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <p>Built with ❤️ by <a target="_blank" rel="noopener noreferrer" className="text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline underline-offset-2" href="https://www.linkedin.com/in/roshankrsoni/">Roshan Kr Soni</a></p>
         </div>
