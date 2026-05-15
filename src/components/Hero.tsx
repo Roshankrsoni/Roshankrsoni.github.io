@@ -34,7 +34,7 @@ export default function Hero() {
           </span> engineering <br className="hidden md:block" />
           <span className="font-dancing-script font-bold text-emerald-600 dark:text-emerald-400 relative">
             for
-          </span> <span className="relative inline-block"><span className="relative z-10">AI-powered</span><span className="absolute bottom-1 left-0 w-full h-2 bg-rose-400/30 dark:bg-rose-500/30 -z-10 rounded-full"></span></span> Web and Mobile <br className="hidden md:block" />
+          </span> <span className="relative inline-block"><span className="relative z-10">AI-powered</span></span> Web and Mobile <br className="hidden md:block" />
           <span className="font-dancing-script font-bold text-indigo-600 dark:text-indigo-400 relative">
             Apps
           </span> that <span className="font-dancing-script font-bold text-amber-600 dark:text-amber-400 relative">
