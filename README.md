@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Roshan Kr Soni Portfolio" src="assets/portfolio.png" width="800" style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.15);" />
+  <img alt="Roshan Kr Soni Portfolio" src="https://github.com/user-attachments/assets/268a09d3-3543-4de1-a481-055f72c38bf4" width="800" style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.15);" />
   
   <br /><br />
 
