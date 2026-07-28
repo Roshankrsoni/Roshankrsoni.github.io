@@ -2,12 +2,186 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+/* ------------------------------------------------------------------ */
+/*  Design tokens — "dark cinematic" system                            */
+/*  Light = misty pearl (default :root), Dark = deep ink (.dark)       */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --canvas: oklch(0.965 0.01 90);
+  --surface: oklch(0.985 0.007 90);
+  --raised: oklch(1 0.004 90);
+  --ink: oklch(0.22 0.015 90);
+  --muted: oklch(0.47 0.015 90);
+  --faint: oklch(0.6 0.014 90);
+  --line: oklch(0.22 0.015 90 / 9%);
+  --accent: oklch(0.55 0.12 80);
+  --accent-2: oklch(0.46 0.12 62);
+  --glass-bg: oklch(1 0.004 90 / 62%);
+  --glass-line: oklch(0.22 0.015 90 / 8%);
+  --ring-fill: oklch(0.985 0.007 90);
+  --glow: oklch(0.6 0.13 80 / 25%);
+}
+
+.dark {
+  --canvas: oklch(0.14 0.008 90);
+  --surface: oklch(0.18 0.01 90);
+  --raised: oklch(0.215 0.012 90);
+  --ink: oklch(0.95 0.006 90);
+  --muted: oklch(0.68 0.012 90);
+  --faint: oklch(0.52 0.012 90);
+  --line: oklch(1 0 0 / 8%);
+  --accent: oklch(0.86 0.12 92);
+  --accent-2: oklch(0.68 0.15 68);
+  --glass-bg: oklch(1 0 0 / 3.5%);
+  --glass-line: oklch(1 0 0 / 8%);
+  --ring-fill: oklch(0.18 0.01 90);
+  --glow: oklch(0.82 0.13 88 / 20%);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-dancing-script: "Dancing Script", cursive;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                          */
+/* ------------------------------------------------------------------ */
+
+@utility glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-line);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@utility text-aurora {
+  background-image: linear-gradient(115deg, var(--accent) 5%, var(--accent-2) 50%, var(--accent) 95%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shine 7s ease-in-out infinite;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@utility aurora-ring {
+  border: 0px solid transparent;
+}
+
+@utility glow-accent {
+  box-shadow: 0 0 90px -24px var(--glow);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 104px;
 }
 
 body {
-  @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50;
+  @apply bg-canvas text-ink font-sans antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 28%, transparent);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--ink) 18%, transparent);
+  border-radius: 8px;
+  border: 3px solid var(--canvas);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--ink) 30%, transparent);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Gold shimmer (accent words)                                        */
+/* ------------------------------------------------------------------ */
+
+@keyframes gold-shine {
+
+  0%,
+  100% {
+    background-position: 0% 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Marquee (shared by Hero tech strip)                                */
+/* ------------------------------------------------------------------ */
+
+@keyframes slide-marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide-marquee {
+  animation: slide-marquee 24s linear infinite;
+}
+
+.marquee:hover .animate-slide-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-slide-marquee,
+  .text-aurora {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }

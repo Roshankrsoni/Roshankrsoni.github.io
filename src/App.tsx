@@ -1,3 +1,4 @@
+import Aurora from './components/Aurora';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
@@ -10,9 +11,10 @@ import Chatbox from './components/Chatbox';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-sans selection:bg-blue-100 dark:selection:bg-blue-900 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-canvas text-ink font-sans px-4 sm:px-6 lg:px-8">
+      <Aurora />
       <Navbar />
-      <main className="min-h-[50vh] max-w-5xl mx-auto pt-3 pb-8">
+      <main className="min-h-[50vh] max-w-6xl mx-auto pt-3 pb-8">
         <Hero />
         <Experience />
         <Projects />

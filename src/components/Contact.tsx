@@ -1,90 +1,97 @@
 import { motion } from 'motion/react';
-import { Briefcase, Code, Coffee, ArrowRight } from 'lucide-react';
+import { Briefcase, Code, Coffee, ArrowUpRight } from 'lucide-react';
 
 const contactCards = [
   {
-    title: "Hire Full-time",
-    description: "Looking for a dedicated developer to join your engineering team?",
+    title: "Hire full-time",
+    description: "Looking for a dedicated senior engineer to join your team and own the frontend?",
     icon: Briefcase,
-    color: "text-blue-500"
   },
   {
-    title: "Freelance Project",
-    description: "Need a high-impact landing page or web app built from scratch?",
+    title: "Freelance project",
+    description: "Need a high-impact app or platform designed, built, and shipped end to end?",
     icon: Code,
-    color: "text-emerald-500"
   },
   {
     title: "Collaboration",
-    description: "Have a startup idea or open source project you want to discuss?",
+    description: "Have a startup idea or an open source project you want to talk through?",
     icon: Coffee,
-    color: "text-amber-500"
   }
 ];
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export default function Contact() {
   return (
-    <section id="contact" className="w-full pt-8 pb-12 mt-4 border-t border-slate-200 dark:border-slate-800/50">
-      <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-8 space-y-2">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
+    <section id="contact" className="w-full py-20 sm:py-28 mt-4 border-t border-line">
+      <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-12">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900 dark:text-slate-50"
+          transition={{ duration: 0.6, ease: EASE }}
+          className="eyebrow"
         >
-          Wanna <span className="font-dancing-script font-bold text-rose-500">Chat</span>?
+          05 · Contact
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.08, ease: EASE }}
+          className="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink"
+        >
+          Let's build something <em className="text-aurora font-light">worth shipping</em>.
         </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-xs sm:text-sm max-w-lg text-slate-500 dark:text-slate-400 font-inter leading-relaxed"
+          transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
+          className="mt-5 text-[15px] leading-[1.75] max-w-lg text-muted"
         >
-          Whether you need a full-time engineer, a freelance expert, or just want to talk tech—I'm just a message away.
+          Whether you need a full-time engineer, a freelance expert, or just want to talk tech, I'm one message away.
         </motion.p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
         {contactCards.map((card, index) => (
-          <motion.div 
+          <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col p-5 bg-slate-50 dark:bg-slate-900/40 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-black/50 transition-all duration-300"
+            transition={{ delay: index * 0.08, duration: 0.6, ease: EASE }}
+            className="group relative flex flex-col items-center text-center p-7 glass rounded-3xl transition-all duration-500 ease-expo hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)]"
           >
-            <div className="absolute inset-0 opacity-40 dark:opacity-20 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            
-            <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-              <div className={`p-3 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 ${card.color}`}>
-                <card.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">{card.title}</h3>
-              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                {card.description}
-              </p>
+            <div className="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="aurora-ring rounded-2xl p-3.5 mb-5 transition-transform duration-300 group-hover:scale-110">
+              <card.icon className="w-5 h-5 text-accent" strokeWidth={1.4} />
             </div>
+            <h3 className="font-display text-xl text-ink mb-2">{card.title}</h3>
+            <p className="text-[13px] text-muted leading-[1.7]">
+              {card.description}
+            </p>
           </motion.div>
         ))}
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: EASE }}
         className="flex justify-center"
       >
-        <button 
+        <button
           onClick={(e) => {
             e.preventDefault();
             window.dispatchEvent(new Event('open-chatbox'));
           }}
-          className="group inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 rounded-full text-xs font-semibold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 cursor-pointer w-auto"
+          className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-ink text-canvas text-sm font-medium hover:opacity-90 transition-all glow-accent cursor-pointer"
         >
-          <span>Connect here</span>
-          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+          <span>Start a conversation</span>
+          <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </button>
       </motion.div>
     </section>
