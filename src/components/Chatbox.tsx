@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageCircle, X, CheckCircle2, ChevronDown } from 'lucide-react';
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export default function Chatbox() {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,7 +24,7 @@ export default function Chatbox() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    
+
     try {
       const response = await fetch('https://api.galactus.run/user-query/', {
         method: 'POST',
@@ -50,7 +52,7 @@ export default function Chatbox() {
       });
 
       if (!response.ok) throw new Error('API Error');
-      
+
       setStatus('success');
       setTimeout(() => {
         setIsOpen(false);
@@ -63,22 +65,29 @@ export default function Chatbox() {
     }
   };
 
+  const inputClasses = "w-full text-base sm:text-sm px-3.5 py-2.5 bg-surface border border-line rounded-xl text-ink placeholder:text-faint focus:outline-none focus:border-accent/60 focus:ring-2 focus:ring-accent/20 transition-all";
+
   return (
     <>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-5 sm:right-8 w-[calc(100vw-40px)] sm:w-[380px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl z-50 overflow-hidden"
+            exit={{ opacity: 0, y: 20, scale: 0.96 }}
+            transition={{ duration: 0.35, ease: EASE }}
+            className="fixed bottom-24 right-5 sm:right-8 w-[calc(100vw-40px)] sm:w-[380px] glass rounded-3xl shadow-2xl z-50 overflow-hidden"
           >
-            <div className="bg-slate-50 dark:bg-slate-800/50 p-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
-              <h3 className="font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-2 text-sm">
-                <MessageCircle className="w-4 h-4" />
-                Ask a Question
+            <div className="px-5 py-4 border-b border-line flex justify-between items-center">
+              <h3 className="font-display text-lg text-ink flex items-center gap-2">
+                <MessageCircle className="w-4 h-4 text-accent" />
+                Ask a question
               </h3>
-              <button aria-label="Close Chat" onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer">
+              <button
+                aria-label="Close Chat"
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 rounded-full text-faint hover:text-ink hover:bg-ink/5 dark:hover:bg-white/5 transition-colors cursor-pointer"
+              >
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -87,62 +96,62 @@ export default function Chatbox() {
               {status === 'success' ? (
                 <div className="flex flex-col items-center justify-center py-8 text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-emerald-500" />
-                  <p className="text-slate-800 dark:text-slate-200 font-medium text-sm">Message sent successfully!</p>
-                  <p className="text-xs text-slate-600">I will get back to you shortly.</p>
+                  <p className="text-ink font-medium text-sm">Message sent successfully.</p>
+                  <p className="text-xs text-muted">I will get back to you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1.5 flex flex-col items-start text-left">
-                    <label className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Name</label>
-                    <input 
-                      required 
-                      type="text" 
+                    <label className="text-[13px] font-medium text-muted">Name</label>
+                    <input
+                      required
+                      type="text"
                       placeholder="Enter your name"
                       value={formData.name}
                       onChange={e => setFormData({...formData, name: e.target.value})}
-                      className="w-full text-sm px-3 py-2.5 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:text-slate-200 placeholder:text-slate-400"
+                      className={inputClasses}
                     />
                   </div>
-                  
+
                   <div className="space-y-1.5 flex flex-col items-start text-left">
-                    <label className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Email</label>
-                    <input 
-                      required 
-                      type="email" 
+                    <label className="text-[13px] font-medium text-muted">Email</label>
+                    <input
+                      required
+                      type="email"
                       placeholder="Enter your email"
                       value={formData.email}
                       onChange={e => setFormData({...formData, email: e.target.value})}
-                      className="w-full text-sm px-3 py-2.5 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:text-slate-200 placeholder:text-slate-400"
+                      className={inputClasses}
                     />
                   </div>
-                  
+
                   <div className="space-y-1.5 flex flex-col items-start text-left">
-                    <label className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Your Question</label>
-                    <textarea 
-                      required 
+                    <label className="text-[13px] font-medium text-muted">Your question</label>
+                    <textarea
+                      required
                       rows={2}
                       placeholder="Try asking a detailed question"
                       value={formData.query}
                       onChange={e => setFormData({...formData, query: e.target.value})}
-                      className="w-full resize-none text-sm px-3 py-2.5 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:text-slate-200 placeholder:text-slate-400"
+                      className={`${inputClasses} resize-none`}
                     />
                   </div>
-                  
+
                   <div className="space-y-1.5 flex flex-col items-start text-left">
-                    <label className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Phone number</label>
-                    <div className="flex w-full rounded-lg border border-slate-300 dark:border-slate-700 overflow-hidden bg-white dark:bg-slate-950 focus-within:ring-2 focus-within:ring-blue-500/50">
-                      <div className="flex items-center gap-1 px-2.5 bg-slate-200/50 dark:bg-slate-800/50 border-r border-slate-300 dark:border-slate-700 text-sm cursor-pointer select-none">
+                    <label className="text-[13px] font-medium text-muted">Phone number</label>
+                    <div className="flex w-full rounded-xl border border-line overflow-hidden bg-surface focus-within:border-accent/60 focus-within:ring-2 focus-within:ring-accent/20 transition-all">
+                      <div className="flex items-center gap-1 px-2.5 bg-ink/[0.04] dark:bg-white/[0.05] border-r border-line text-sm cursor-pointer select-none">
                         <span className="text-base leading-none">🇮🇳</span>
-                        <ChevronDown className="w-3 h-3 text-slate-500" />
+                        <ChevronDown className="w-3 h-3 text-faint" />
                       </div>
                       <div className="flex items-center flex-1 px-3 bg-transparent">
-                        <span className="text-sm text-slate-600 dark:text-slate-400 mr-1">+91</span>
-                        <input 
-                          required 
+                        <span className="text-base sm:text-sm text-muted mr-1">+91</span>
+                        <input
+                          required
                           type="tel"
                           value={formData.phone}
                           onChange={e => setFormData({...formData, phone: e.target.value.replace(/[^0-9]/g, '')})}
-                          className="w-full text-sm py-2.5 focus:outline-none dark:text-slate-200 bg-transparent placeholder:text-slate-400"
+                          className="w-full text-base sm:text-sm py-2.5 focus:outline-none text-ink bg-transparent placeholder:text-faint"
                         />
                       </div>
                     </div>
@@ -152,12 +161,12 @@ export default function Chatbox() {
                     <p className="text-xs text-red-500 font-medium text-left">Failed to send. Please try again.</p>
                   )}
 
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     disabled={status === 'loading'}
-                    className="w-full mt-2 flex items-center justify-center py-2.5 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-700 dark:bg-slate-100 dark:hover:bg-white dark:disabled:bg-slate-300 text-white dark:text-slate-900 rounded-lg font-medium text-sm transition-colors cursor-pointer"
+                    className="w-full mt-2 flex items-center justify-center py-3 rounded-full bg-ink text-canvas font-medium text-sm hover:opacity-90 disabled:opacity-50 transition-all cursor-pointer"
                   >
-                    {status === 'loading' ? 'Sending...' : 'Submit'}
+                    {status === 'loading' ? 'Sending…' : 'Send message'}
                   </button>
                 </form>
               )}
@@ -168,10 +177,10 @@ export default function Chatbox() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-5 sm:right-8 z-40 p-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all cursor-pointer"
+        className="fixed bottom-6 right-5 sm:right-8 z-40 p-4 bg-ink text-canvas rounded-full shadow-xl hover:scale-105 transition-all cursor-pointer glow-accent"
         aria-label="Toggle Chat"
       >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        {isOpen ? <X className="w-5 h-5" /> : <MessageCircle className="w-5 h-5" />}
       </button>
     </>
   );
