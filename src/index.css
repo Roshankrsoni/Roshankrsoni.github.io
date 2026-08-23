@@ -2,12 +2,132 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-dancing-script: "Dancing Script", cursive;
+/* ---------------------------------------------------------------------------
+   opencode.ai design tokens
+   --------------------------------------------------------------------------- */
+
+:root {
+  --bg: hsl(0, 20%, 99%);
+  --surface: hsl(0, 8%, 97%);
+  --surface-hover: hsl(0, 8%, 94%);
+  --ink: hsl(0, 5%, 12%);
+  --ink-hover: hsl(0, 5%, 18%);
+  --body-c: hsl(0, 1%, 39%);
+  --muted: hsl(0, 1%, 60%);
+  --faint: hsl(30, 2%, 81%);
+  --line: hsla(0, 100%, 3%, 0.12);
+  --edge: hsl(30, 2%, 81%);
+  --accent: hsl(62, 84%, 88%);
+  --accent-soft: hsl(64, 74%, 95%);
+}
+
+.dark {
+  --bg: hsl(0, 9%, 7%);
+  --surface: hsl(0, 6%, 10%);
+  --surface-hover: hsl(0, 6%, 15%);
+  --ink: hsl(0, 15%, 94%);
+  --ink-hover: hsl(0, 15%, 97%);
+  --body-c: hsl(0, 4%, 71%);
+  --muted: hsl(0, 2%, 49%);
+  --faint: hsl(0, 3%, 28%);
+  --line: hsl(0, 4%, 23%);
+  --edge: hsl(0, 3%, 28%);
+  --accent: hsl(62, 100%, 90%);
+  --accent-soft: hsl(60, 20%, 8%);
+}
+
+@theme inline {
+  /* IBM Plex Mono carries the entire interface */
+  --font-sans: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+
+  --color-page: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-ink: var(--ink);
+  --color-ink-hover: var(--ink-hover);
+  --color-body: var(--body-c);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-edge: var(--edge);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50;
+  @apply bg-page text-body font-mono antialiased;
+  font-feature-settings: normal;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: none;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 1.5px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   Controls — flat, squared, hairline-bordered
+   --------------------------------------------------------------------------- */
+
+.btn-solid {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-[4px] bg-ink px-4 py-2.5 text-sm font-medium text-page transition-colors duration-150 hover:bg-ink-hover;
+}
+
+.btn-outline {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-[4px] border border-line px-4 py-2.5 text-sm font-medium text-ink transition-colors duration-150 hover:bg-surface;
+}
+
+.btn-icon {
+  @apply flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-[4px] text-muted transition-colors duration-150 hover:bg-surface hover:text-ink;
+}
+
+/* Form fields */
+.field {
+  @apply w-full rounded-[6px] border border-line bg-surface px-4 py-3 text-sm text-ink placeholder:text-muted transition-all duration-150;
+}
+.field:focus {
+  outline: none;
+  border-color: var(--ink);
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.dark .field:focus {
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+/* Hairline section rhythm */
+.section {
+  @apply border-t border-line px-6 py-16 md:px-14 xl:px-20;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

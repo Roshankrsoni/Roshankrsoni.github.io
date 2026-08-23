@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 const blogs = [
   {
@@ -42,90 +42,63 @@ export default function Blogs() {
   const displayedBlogs = showAll ? blogs : blogs.slice(0, 3);
 
   return (
-    <section id="blogs" className="w-full py-8">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
-        <div className="space-y-2 pl-4">
-          <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-xl md:text-2xl font-medium tracking-tight text-slate-900 dark:text-slate-50"
-          >
-            Latest <span className="font-dancing-script font-bold text-violet-500">Writings</span>.
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-xs text-slate-500 dark:text-slate-400 font-mono"
-          >
-            Thoughts on development, design, and entrepreneurship.
-          </motion.p>
-        </div>
+    <section id="blogs" className="section">
+      <div className="mb-10 flex items-baseline gap-3">
+        <span className="text-xs text-faint">04</span>
+        <h2 className="text-base font-bold text-ink">Latest writings</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {displayedBlogs.map((blog, index) => (
-          <motion.a 
+          <motion.a
             key={blog.id}
             href={blog.link}
             aria-label={`Read article: ${blog.title}`}
-            target="_blank" 
-            rel="noopener noreferrer" 
-            initial={{ opacity: 0, y: 20 }}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col h-full bg-white dark:bg-slate-900/40 rounded-2xl overflow-hidden hover:shadow-xl shadow-sm dark:shadow-none transition-all duration-300 ease-in-out border border-slate-200 dark:border-slate-800"
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.35, delay: Math.min(index * 0.06, 0.18) }}
+            className="group flex h-full flex-col rounded-[6px] border border-line bg-surface p-5 no-underline transition-colors hover:border-edge"
           >
-            <div className="absolute inset-0 opacity-30 dark:opacity-10 pointer-events-none bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            
-            <div className="relative flex flex-col grow py-4 px-4 transition-all duration-300 ease-in-out z-10">
-              <h3 className="text-base font-semibold text-slate-800 dark:text-slate-100 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2 mb-3 leading-snug">
+            <div className="mb-3 flex items-start justify-between gap-3">
+              <h3 className="text-sm font-semibold leading-snug text-ink underline-offset-4 group-hover:underline group-hover:decoration-line">
                 {blog.title}
               </h3>
-              
-              <p className="text-xs tracking-wide text-slate-600 dark:text-slate-400 line-clamp-3 mb-6 grow leading-relaxed">
-                {blog.excerpt}
-              </p>
-              
-              <div className="mt-auto space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  <div className="flex items-center gap-1 px-2 py-0.5 text-[9px] uppercase tracking-wider font-mono rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                    <Calendar className="w-3 h-3" />
-                    <time>{blog.date}</time>
-                  </div>
-                  <div className="flex items-center gap-1 px-2 py-0.5 text-[9px] uppercase tracking-wider font-mono rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                    <Clock className="w-3 h-3" />
-                    <span>{blog.readTime}</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Read Article
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
+              <ArrowUpRight className="mt-0.5 size-4 shrink-0 text-faint transition-colors group-hover:text-ink" />
+            </div>
+
+            <p className="mb-6 line-clamp-3 grow text-xs leading-loose text-body">
+              {blog.excerpt}
+            </p>
+
+            <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3.5 text-[11px] text-muted">
+              <span className="flex items-center gap-3">
+                <span className="flex items-center gap-1">
+                  <Calendar className="size-3" />
+                  {blog.date}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Clock className="size-3" />
+                  {blog.readTime}
+                </span>
+              </span>
+              <span className="flex items-center gap-1 text-ink opacity-70 transition-opacity group-hover:opacity-100">
+                read
+                <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+              </span>
             </div>
           </motion.a>
         ))}
       </div>
-      
+
       {blogs.length > 3 && (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center mt-6"
-        >
-          <button 
-            onClick={() => setShowAll(!showAll)}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer"
-          >
-            {showAll ? "Show Less" : "Read More Articles"}
+        <div className="mt-8">
+          <button onClick={() => setShowAll(!showAll)} className="btn-outline cursor-pointer">
+            {showAll ? "show less" : "read more articles"}
           </button>
-        </motion.div>
+        </div>
       )}
     </section>
   );

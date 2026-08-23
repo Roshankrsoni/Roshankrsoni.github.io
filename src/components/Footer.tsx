@@ -1,110 +1,108 @@
 import { Twitter, Linkedin, Mail, Github, Instagram } from 'lucide-react';
-import { motion } from 'motion/react';
+
+const pageLinks = [
+  { label: "home", href: "#" },
+  { label: "projects", href: "#projects" },
+  { label: "experience", href: "#experience" },
+  { label: "services", href: "#services" },
+  { label: "contact", href: "#contact" }
+];
+
+const resourceLinks = [
+  { label: "blog", href: "https://lymcode.hashnode.dev/" },
+  { label: "github", href: "https://github.com/roshankrsoni" }
+];
+
+const socials = [
+  { label: "GitHub", href: "https://github.com/roshankrsoni", Icon: Github },
+  { label: "Twitter", href: "https://x.com/roshankrsoni", Icon: Twitter },
+  { label: "Instagram", href: "https://instagram.com/roshankrsoni", Icon: Instagram },
+  { label: "Mail", href: "mailto:roshanx404@gmail.com", Icon: Mail },
+  { label: "Linkedin", href: "https://www.linkedin.com/in/roshankrsoni/", Icon: Linkedin }
+];
 
 export default function Footer() {
-  const currentDate = new Date();
-  const year = currentDate.getFullYear();
+  const year = new Date().getFullYear();
   return (
-    <>
-      <footer className="w-full max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800 pt-6 pb-4">
-      <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-6">
-        <div className="flex flex-col items-start gap-y-4 md:w-1/3">
-          <div>
-            <h2 className="text-2xl font-medium mb-1 tracking-tight">
-              <span className="font-dancing-script font-bold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-emerald-500">Roshan Kr Soni</span>
-            </h2>
-            <div className="flex flex-col gap-y-1 mt-3">
-              <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Senior Experience Engineer</p>
-              <p className="text-[10px] text-slate-600 dark:text-slate-400">Ranchi, Jharkhand, India</p>
-            </div>
-          </div>
-
-          {/* <div className="flex items-center gap-3">
-            <a target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://x.com/">
-              <Twitter className="w-3.5 h-3.5" />
-            </a>
-            <a target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://www.linkedin.com/in/roshankrsoni/">
-              <Linkedin className="w-3.5 h-3.5" />
-            </a>
-            <a target="_blank" rel="noopener noreferrer" aria-label="Mail" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="mailto:roshanx404@gmail.com">
-              <Mail className="w-3.5 h-3.5" />
-            </a>
-          </div> */}
+    <footer className="border-t border-line">
+      {/* cells */}
+      <div className="flex flex-col md:flex-row">
+        <div className="flex flex-1 flex-col items-center gap-4 border-b border-line px-6 py-10 md:border-b-0 md:border-r">
+          <span className="text-xs text-muted">pages</span>
+          <nav className="flex flex-col items-center gap-2.5">
+            {pageLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-[13px] text-body no-underline transition-colors hover:text-ink hover:underline hover:underline-offset-4"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-6 text-left">
-          <div className="flex flex-col gap-3">
-            <h3 className="text-[11px] font-bold text-slate-900 dark:text-slate-100 uppercase tracking-widest">Pages</h3>
-            <div className="flex flex-col gap-2 text-xs text-slate-600 dark:text-slate-400 font-medium">
-              <a className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#">Home</a>
-              <a className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#projects">Projects</a>
-              <a className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#experience">Experience</a>
-              <a className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#services">Services</a>
-              <a className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#contact">Contact</a>
-            </div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <h3 className="text-[11px] font-bold text-slate-900 dark:text-slate-100 uppercase tracking-widest">Resources</h3>
-            <div className="flex flex-col gap-2 text-xs text-slate-600 dark:text-slate-400 font-medium">
-              <a target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="https://lymcode.hashnode.dev/">Blog</a>
-              <a target="_blank" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="https://github.com/roshankrsoni">Github</a>
-            </div>
-          </div>
-          <div className="flex flex-col gap-3 col-span-2 sm:col-span-1">
-            <h3 className="text-[11px] font-bold text-slate-900 dark:text-slate-100 uppercase tracking-widest">Connect</h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 font-medium max-w-xs text-left leading-relaxed">
-              Wanna chat? Contact anywhere below.
-            </p>
-            <div className="flex items-center gap-2 mt-1">
-              <a target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://github.com/roshankrsoni">
-                <Github className="w-4 h-4" />
+        <div className="flex flex-1 flex-col items-center gap-4 border-b border-line px-6 py-10 md:border-b-0 md:border-r">
+          <span className="text-xs text-muted">resources</span>
+          <nav className="flex flex-col items-center gap-2.5">
+            {resourceLinks.map((link) => (
+              <a
+                key={link.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={link.href}
+                className="text-[13px] text-body no-underline transition-colors hover:text-ink hover:underline hover:underline-offset-4"
+              >
+                {link.label}
               </a>
-              <a target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://x.com/roshankrsoni">
-                <Twitter className="w-4 h-4" />
+            ))}
+          </nav>
+        </div>
+
+        <div className="flex flex-1 flex-col items-center gap-4 px-6 py-10">
+          <span className="text-xs text-muted">connect</span>
+          <p className="max-w-[26ch] text-center text-[13px] leading-loose text-body">
+            Wanna chat? Reach out anywhere below.
+          </p>
+          <div className="flex items-center justify-center gap-1">
+            {socials.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                href={href}
+                className="btn-icon !size-9"
+              >
+                <Icon className="size-4" />
               </a>
-              <a target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://instagram.com/roshankrsoni">
-                <Instagram className="w-4 h-4" />
-              </a>
-              {/* email */}
-              <a target="_blank" rel="noopener noreferrer" aria-label="Mail" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="mailto:roshanx404@gmail.com">
-                <Mail className="w-4 h-4" />
-              </a>
-              {/* linkedin */}
-              <a target="_blank" rel="noopener noreferrer" aria-label="Linkedin" className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors" href="https://www.linkedin.com/in/roshankrsoni/">
-                <Linkedin className="w-4 h-4" />
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-      {/* Cinematic Name Overlay */}
-      <div className="w-full relative overflow-hidden flex justify-center items-end pointer-events-none mt-8 sm:mt-12 pb-2">
-        <motion.h1 
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-[18vw] sm:text-[16vw] font-black leading-[0.75] tracking-[-.05em] text-transparent bg-clip-text bg-gradient-to-b from-slate-200 to-slate-50 dark:from-slate-800 dark:to-slate-950 select-none whitespace-nowrap"
-        >
-          Mr RXN
-        </motion.h1>
-      </div>
-      <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-slate-600 dark:text-slate-400 font-medium">
-        <span className="flex items-center gap-2">
-          © {year} Roshan Kr Soni. All rights reserved.
+
+      {/* legal bar */}
+      <div className="flex flex-col items-center justify-between gap-3 border-t border-line px-6 py-5 text-[11px] text-muted sm:flex-row sm:px-14 xl:px-20">
+        <span>© {year} Roshan Kr Soni. All rights reserved.</span>
+        <span className="flex items-center gap-3">
+          built by
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ink"
+            href="https://www.linkedin.com/in/roshankrsoni/"
+          >
+            Roshan Kr Soni
+          </a>
           <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block" aria-label="Web Hit Counter">
-            <img 
-              src={`https://counter.websiteout.com/compte.php?S=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'https://roshankrsoni.github.io/')}&C=20&D=0&N=20000&M=1`} 
-              alt="web hit counter" 
-              className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+            <img
+              src={`https://counter.websiteout.com/compte.php?S=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'https://roshankrsoni.github.io/')}&C=20&D=0&N=20000&M=1`}
+              alt="web hit counter"
+              className="object-contain opacity-70 transition-opacity hover:opacity-100"
             />
           </a>
         </span>
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <p>Built with ❤️ by <a target="_blank" rel="noopener noreferrer" className="text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline underline-offset-2" href="https://www.linkedin.com/in/roshankrsoni/">Roshan Kr Soni</a></p>
-        </div>
       </div>
-      </footer>
-    </>
+    </footer>
   );
 }

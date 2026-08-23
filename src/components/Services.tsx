@@ -5,31 +5,27 @@ import { Code2, Smartphone, BrainCircuit, LayoutTemplate, ArrowRight } from 'luc
 const servicesData = [
   {
     title: "Mobile App Development",
-    description: "Building high‑quality React Native apps for iOS and Android with smooth UX, offline‑first patterns, and maintainable codebases ready for long‑term growth.",
+    description: "Building high-quality React Native apps for iOS and Android with smooth UX, offline-first patterns, and maintainable codebases ready for long-term growth.",
     icon: Smartphone,
-    number: "01",
-    color: "text-rose-500"
+    number: "01"
   },
   {
     title: "AI Integration & Automation",
-    description: "Embedding AI into existing products and workflows—recommendation systems, smart search, and AI‑assisted features—without compromising reliability or performance.",
+    description: "Embedding AI into existing products and workflows—recommendation systems, smart search, and AI-assisted features—without compromising reliability or performance.",
     icon: BrainCircuit,
-    number: "02",
-    color: "text-emerald-500"
+    number: "02"
   },
   {
     title: "Frontend Web Development",
-    description: "Crafting responsive, accessible, and pixel‑perfect interfaces using React and Next.js, with clean state management and attention to real‑world performance budgets.",
+    description: "Crafting responsive, accessible, and pixel-perfect interfaces using React and Next.js, with clean state management and attention to real-world performance budgets.",
     icon: LayoutTemplate,
-    number: "03",
-    color: "text-violet-500"
+    number: "03"
   },
   {
     title: "Full Stack Architecture",
-    description: "Designing end‑to‑end solutions using Node.js, modern databases, and cloud‑ready patterns, with clear boundaries between services and a focus on observability.",
+    description: "Designing end-to-end solutions using Node.js, modern databases, and cloud-ready patterns, with clear boundaries between services and a focus on observability.",
     icon: Code2,
-    number: "04",
-    color: "text-blue-500"
+    number: "04"
   }
 ];
 
@@ -44,109 +40,89 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="min-h-[50vh] w-full flex flex-col py-8 space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div>
-          <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-xl md:text-2xl font-medium leading-tight tracking-tight text-slate-900 dark:text-slate-50"
-          >
-            My <span className="font-dancing-script font-bold text-amber-500">Services</span> & Expertise.
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mt-1.5 text-slate-500 dark:text-slate-400 font-mono text-[10px] uppercase tracking-widest"
-          >
-            What I can do for you
-          </motion.p>
-        </div>
+    <section id="services" className="section">
+      <div className="mb-10 flex items-baseline gap-3">
+        <span className="text-xs text-faint">03</span>
+        <h2 className="text-base font-bold text-ink">Services & expertise</h2>
       </div>
 
-      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-5 lg:gap-8">
-        <div className="order-2 lg:order-1 flex flex-col justify-center space-y-2">
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-12">
+        {/* list — tab-style rows */}
+        <div className="order-2 flex flex-1 flex-col justify-center lg:order-1" role="tablist">
           {servicesData.map((service, index) => (
-            <motion.div 
+            <button
               key={index}
+              role="tab"
+              aria-selected={activeIndex === index}
               onClick={() => setActiveIndex(index)}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`relative pl-6 py-5 cursor-pointer transition-all duration-300 rounded-r-2xl group ${activeIndex === index ? 'bg-slate-100 dark:bg-slate-900/80' : 'hover:bg-slate-50 dark:hover:bg-slate-900/40'}`}
+              className={`group flex cursor-pointer items-center gap-4 border-b border-line py-5 text-left transition-colors first:border-t ${
+                activeIndex === index ? 'bg-transparent' : ''
+              } hover:bg-surface/60`}
             >
-              <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                {activeIndex === index && <motion.div layoutId="activeService" className="w-full h-full bg-blue-500 dark:bg-blue-400"></motion.div>}
-              </div>
-              <h3 className={`text-sm font-medium transition-colors duration-200 flex items-center ${activeIndex === index ? 'text-blue-600 dark:text-blue-400' : 'text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-100'}`}>
+              <span className={`w-7 text-xs ${activeIndex === index ? 'text-ink' : 'text-faint'}`}>
+                {service.number}
+              </span>
+              <span
+                className={`flex-1 text-sm transition-colors ${
+                  activeIndex === index ? 'font-semibold text-ink' : 'text-body group-hover:text-ink'
+                }`}
+              >
                 {service.title}
-              </h3>
-            </motion.div>
+              </span>
+              <span className={`text-xs transition-opacity ${activeIndex === index ? 'text-ink opacity-100' : 'text-muted opacity-0 group-hover:opacity-100'}`}>
+                →
+              </span>
+            </button>
           ))}
         </div>
-        
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+
+        {/* preview panel */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="order-1 lg:order-2 h-[250px] sm:h-[300px] w-full relative perspective-1000"
+          transition={{ duration: 0.4 }}
+          className="order-1 lg:order-2 lg:w-[46%]"
         >
-          <div className="relative w-full h-full rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-900/50 shadow-xl shadow-slate-200/50 dark:shadow-black/40 flex flex-col items-center justify-center p-5 text-center">
-            <div className="absolute inset-0 opacity-[0.05] dark:opacity-[0.08] pointer-events-none bg-[radial-gradient(#64748b_2px,transparent_2px)] [background-size:24px_24px]"></div>
-            
+          <div className="relative flex h-full min-h-[280px] flex-col justify-center overflow-hidden rounded-[6px] border border-line bg-surface p-7 sm:p-9">
+            {/* dot grid texture */}
+            <div className="pointer-events-none absolute inset-0 opacity-[0.35] dark:opacity-20 [background-image:radial-gradient(var(--edge)_1px,transparent_1px)] [background-size:20px_20px]" />
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="relative z-10 flex flex-col items-center"
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="relative z-10 flex flex-col items-start"
               >
-                <motion.div 
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative z-10 size-16 mb-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-center justify-center shadow-lg"
-                >
-                  {(() => {
-                    const Icon = servicesData[activeIndex].icon;
-                    return <Icon className={`w-8 h-8 ${servicesData[activeIndex].color}`} />;
-                  })()}
-                </motion.div>
-                
-                <div className="relative z-10 max-w-sm">
-                  <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                    {servicesData[activeIndex].title}
-                  </h4>
-                  <p className="text-slate-600 font-inter dark:text-slate-400 text-xs leading-relaxed">
-                    {servicesData[activeIndex].description}
-                  </p>
-                </div>
+                {(() => {
+                  const ActiveIcon = servicesData[activeIndex].icon;
+                  return <ActiveIcon className="mb-5 size-10 text-ink" strokeWidth={1.25} />;
+                })()}
+                <h3 className="mb-3 text-base font-bold text-ink">
+                  {servicesData[activeIndex].title}
+                </h3>
+                <p className="max-w-sm text-sm leading-loose text-body">
+                  {servicesData[activeIndex].description}
+                </p>
               </motion.div>
             </AnimatePresence>
 
-            <div className="absolute top-5 right-5 font-mono text-xs font-bold text-slate-300 dark:text-slate-700">
-              {servicesData[activeIndex].number}
-            </div>
+            <span className="absolute right-6 top-6 text-xs text-faint">
+              {servicesData[activeIndex].number} / 04
+            </span>
           </div>
         </motion.div>
       </div>
 
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="flex justify-center"
-      >
-        <a className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-md" href="#contact">
-          <span>Let's work together</span>
-          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+      <div className="mt-12">
+        <a href="#contact" className="btn-outline group">
+          let's work together
+          <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
         </a>
-      </motion.div>
+      </div>
     </section>
   );
 }

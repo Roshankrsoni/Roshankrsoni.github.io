@@ -11,7 +11,7 @@ const titles = [
   "Full Stack Developer"
 ];
 
-const navItems = ['Experience', 'Projects', 'Contact', 'Blogs'];
+const navItems = ['Experience', 'Projects', 'Services', 'Blogs', 'Contact'];
 
 export default function Navbar() {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -34,124 +34,131 @@ export default function Navbar() {
     if (isDark) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
-      document.getElementById('theme-color-meta')?.setAttribute('content', '#020617');
+      document.getElementById('theme-color-meta')?.setAttribute('content', '#131111');
     } else {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
-      document.getElementById('theme-color-meta')?.setAttribute('content', '#ffffff');
+      document.getElementById('theme-color-meta')?.setAttribute('content', '#fcfbfb');
     }
   }, [isDark]);
 
   return (
-    <motion.div 
-      initial={{ y: -20, opacity: 0 }}
+    <motion.div
+      initial={{ y: -12, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="w-full md:max-w-5xl px-4 sm:px-4 rounded-2xl py-3 mx-auto sticky top-2 flex items-center justify-between z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md sm:mt-8"
+      transition={{ duration: 0.3 }}
+      className="sticky top-0 z-50 border-b border-line bg-page"
     >
-      <div className="flex items-center gap-2.5 min-w-0">
-        <a href="https://www.instagram.com/roshankrsoni/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
-          <img 
-            alt="Profile" 
+      <div className="flex h-20 items-center justify-between gap-4 px-6 md:px-14 xl:px-20">
+        {/* Identity */}
+        <a href="#" className="flex min-w-0 items-center gap-3">
+          <img
+            alt="Profile"
             fetchPriority="high"
-            className="w-10 h-10 aspect-square rounded-full cursor-pointer hover:grayscale transition-all object-cover shrink-0" 
-            src={profileImg} 
+            className="size-9 shrink-0 rounded-[4px] border border-line object-cover"
+            src={profileImg}
           />
-        </a>
-        <div className="flex flex-col min-w-0">
-          <h5 className="leading-tight font-medium font-dancing-script text-base sm:text-lg whitespace-nowrap truncate">Roshan Kr Soni <span className="text-[12px] sm:text-sm">👋🏼</span></h5>
-          <div className="text-slate-600 dark:text-slate-400 text-[10px] font-medium h-3.5 flex items-center overflow-hidden min-w-0">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={titleIndex}
-                initial={{ opacity: 0, filter: "blur(4px)" }}
-                animate={{ opacity: 1, filter: "blur(0px)" }}
-                exit={{ opacity: 0, filter: "blur(4px)" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="block truncate w-full"
-              >
-                {titles[titleIndex]}
-              </motion.span>
-            </AnimatePresence>
+          <div className="hidden min-w-0 flex-col sm:flex">
+            <span className="truncate text-sm font-semibold leading-tight text-ink">
+              Roshan Kr Soni
+            </span>
+            <div className="flex h-4 min-w-0 items-center overflow-hidden text-[11px] text-muted">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={titleIndex}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.25 }}
+                  className="block w-full truncate"
+                >
+                  {titles[titleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </div>
-        </div>
-      </div>
+        </a>
 
-      <div className="items-center gap-2 sm:gap-6 flex shrink-0">
-        <nav className="items-center gap-4 sm:flex hidden">
+        {/* Nav */}
+        <nav className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="capitalize text-[11px] font-semibold tracking-wide text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors">
-              {item}
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-[13px] text-muted no-underline transition-colors hover:text-ink hover:underline hover:underline-offset-4 hover:decoration-line"
+            >
+              {item.toLowerCase()}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-1 sm:gap-3">
-          <a target="_blank" aria-label="Twitter Profile" className="cursor-pointer p-1.5 rounded-md hover:bg-slate-200 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300 transition-colors" href="https://x.com/roshankrsoni">
-            <Twitter className="w-4 h-4" />
+        <div className="flex shrink-0 items-center gap-1">
+          <a target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile" className="btn-icon !size-10 max-sm:hidden" href="https://x.com/roshankrsoni">
+            <Twitter className="size-4" />
           </a>
-          <a target="_blank" aria-label="GitHub Profile" className="cursor-pointer p-1.5 rounded-md hover:bg-slate-200 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300 transition-colors" href="https://github.com/roshankrsoni">
-            <Github className="w-3.5 h-3.5" />
+          <a target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="btn-icon !size-10 max-sm:hidden" href="https://github.com/roshankrsoni">
+            <Github className="size-4" />
           </a>
-          <a href="https://docs.google.com/document/d/185aAQjEHRLH5Ku7chZAARsR4zgf-CGqVy--xAiJxGpM/edit?usp=sharing" target="_blank" aria-label="Download Resume" className="group relative hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-full text-[11px] font-mono font-bold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-md">
-            <span>Resume</span>
-            <Download className="w-3 h-3 transition-transform duration-300 group-hover:translate-y-0.5" />
-          </a>
-          <button 
-            onClick={() => setIsDark(!isDark)}
-            aria-label="Toggle Dark Mode"
-            className="flex items-center justify-center cursor-pointer p-1.5 rounded-md hover:bg-slate-200 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300 transition-colors"
-          >
-            {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+
+          <button onClick={() => setIsDark(!isDark)} aria-label="Toggle Dark Mode" className="btn-icon">
+            {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
           </button>
+
+          <a
+            href="https://docs.google.com/document/d/185aAQjEHRLH5Ku7chZAARsR4zgf-CGqVy--xAiJxGpM/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download Resume"
+            className="btn-solid ml-2 hidden !py-2 sm:inline-flex"
+          >
+            resume
+            <Download className="size-3.5" />
+          </a>
+
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle Mobile Menu"
-            className="sm:hidden flex items-center justify-center cursor-pointer p-1.5 rounded-md hover:bg-slate-200 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300 transition-colors"
+            className="btn-icon lg:hidden"
           >
-            {isMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            {isMenuOpen ? <X className="size-4.5" /> : <Menu className="size-4.5" />}
           </button>
         </div>
       </div>
 
+      {/* Mobile menu — full-width sheet under the bar */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute top-[calc(100%+0.5rem)] left-0 right-0 w-full sm:hidden bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-xl border border-slate-200/50 dark:border-slate-800/50 rounded-2xl shadow-xl py-4 flex flex-col gap-2 origin-top"
+          <motion.nav
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+            className="absolute inset-x-0 top-full flex flex-col border-b border-line bg-page py-2 lg:hidden"
           >
-            {navItems.map((item, index) => (
-              <motion.a
+            {navItems.map((item) => (
+              <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 onClick={() => setIsMenuOpen(false)}
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.05 + 0.1 }}
-                className="px-4 py-3 text-[14px] font-semibold tracking-wide text-slate-600 hover:text-slate-900 hover:bg-slate-100/50 dark:text-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-colors mx-2 rounded-xl"
+                className="flex items-center justify-between px-6 py-4 text-sm text-muted no-underline transition-colors hover:bg-surface hover:text-ink"
               >
-                {item}
-              </motion.a>
-            ))}
-            <motion.div
-              initial={{ opacity: 0, x: -15 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: navItems.length * 0.05 + 0.1 }}
-              className="px-2 mt-2"
-            >
-              <a
-                href="https://docs.google.com/document/d/185aAQjEHRLH5Ku7chZAARsR4zgf-CGqVy--xAiJxGpM/edit?usp=sharing"
-                target="_blank"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex flex-1 items-center justify-center gap-2 px-4 py-3 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-xl text-sm font-mono font-bold shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all"
-              >
-                <span>Download Resume</span>
-                <Download className="w-4 h-4" />
+                <span>{item.toLowerCase()}</span>
+                <span className="text-xs text-faint">→</span>
               </a>
-            </motion.div>
-          </motion.div>
+            ))}
+            <a
+              href="https://docs.google.com/document/d/185aAQjEHRLH5Ku7chZAARsR4zgf-CGqVy--xAiJxGpM/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="mx-4 my-2 sm:hidden"
+            >
+              <span className="btn-solid w-full">
+                download resume
+                <Download className="size-4" />
+              </span>
+            </a>
+          </motion.nav>
         )}
       </AnimatePresence>
     </motion.div>

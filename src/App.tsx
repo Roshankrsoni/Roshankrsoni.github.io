@@ -10,17 +10,20 @@ import Chatbox from './components/Chatbox';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-sans selection:bg-blue-100 dark:selection:bg-blue-900 px-4 sm:px-6 lg:px-8">
-      <Navbar />
-      <main className="min-h-[50vh] max-w-5xl mx-auto pt-3 pb-8">
-        <Hero />
-        <Experience />
-        <Projects />
-        <Services />
-        <Blogs />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-page font-mono text-body">
+      {/* Centered container with hairline side rails, like opencode.ai */}
+      <div className="mx-auto max-w-[67.5rem] min-[68rem]:border-x min-[68rem]:border-line">
+        <Navbar />
+        <main>
+          <Hero />
+          <Experience />
+          <Projects />
+          <Services />
+          <Blogs />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
       <Chatbox />
     </div>
   );
