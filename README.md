@@ -43,18 +43,13 @@ shows an empty placeholder.
 
 ## ⚡ Performance
 
-<img src="docs/lighthouse-desktop.png" alt="Lighthouse 100 in Performance, Accessibility, Best Practices and SEO" width="100%" />
+<img src="docs/lighthouse-score.png" alt="Lighthouse: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO" width="100%" />
 
-Audited with **Lighthouse 13** against the deployed site.
-
-| | Performance | Accessibility | Best Practices | SEO |
-| :-- | :--: | :--: | :--: | :--: |
-| **Desktop** | 100 | 100 | 100 | 100 |
-| **Mobile** | 99 | 100 | 100 | 100 |
-
-Measured metrics on mobile (simulated Moto G, slow 4G): **FCP 1.4 s**,
-**LCP 1.9 s**, **TBT 0 ms**, **CLS 0**. The first load is 9 requests / 91 kB,
-down from 25 requests / 619 kB.
+The card above is a desktop run. On Lighthouse's **mobile** profile (simulated
+Moto G, slow 4G) the same site scores **99 / 100 / 100 / 100** — FCP 1.4 s,
+LCP 1.9 s, TBT 0 ms, CLS 0 — so performance is the one number that isn't a
+perfect 100 on throttled mobile. The first load is 9 requests / 91 kB, down from
+25 requests / 619 kB.
 
 ### How
 
