@@ -49,8 +49,7 @@ body {
   @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50;
 }
 
-@keyframes slide-marquee {
-  from {
+@keyframes slide-marquee {  from {
     transform: translateX(0%);
   }
   to {
@@ -76,13 +75,17 @@ body {
   }
 }
 
+/*
+ * Transform-only. Text must never animate its own opacity: the navbar
+ * subtitle re-keys every 3s, so an opacity fade would leave it partially
+ * transparent for 400ms of every cycle, which drops it below the WCAG AA
+ * contrast threshold and is flagged by axe as a color-contrast violation.
+ */
 @keyframes swap-in {
   from {
-    opacity: 0;
     transform: translateY(6px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -136,3 +139,4 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+

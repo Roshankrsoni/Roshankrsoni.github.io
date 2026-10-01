@@ -2,7 +2,6 @@ import { Github, Twitter, Moon, Sun, Download, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import profileImg from '../../assets/avatar.webp';
-import { loadDeferredSections } from '../utils/deferredSections';
 
 const titles = [
   "React & React Native Engineer",
@@ -71,7 +70,7 @@ export default function Navbar() {
       <div className="items-center gap-2 sm:gap-6 flex shrink-0">
         <nav className="items-center gap-4 sm:flex hidden">
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} onClick={loadDeferredSections} className="capitalize text-[11px] font-semibold tracking-wide text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors">
+            <a key={item} href={`#${item.toLowerCase()}`} className="capitalize text-[11px] font-semibold tracking-wide text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors">
               {item}
             </a>
           ))}
@@ -116,10 +115,7 @@ export default function Navbar() {
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
-            onClick={() => {
-              setIsMenuOpen(false);
-              loadDeferredSections();
-            }}
+            onClick={() => setIsMenuOpen(false)}
             className="px-4 py-3 text-[14px] font-semibold tracking-wide text-slate-600 hover:text-slate-900 hover:bg-slate-100/50 dark:text-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-colors mx-2 rounded-xl"
           >
             {item}
