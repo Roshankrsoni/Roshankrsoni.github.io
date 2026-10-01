@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Roshan Kr Soni Portfolio" src="assets/portfolio.png" width="800" style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.15);" />
+  <img alt="Roshan Kr Soni Portfolio" src="assets/portfolio.webp" width="800" style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.15);" />
   
   <br /><br />
 
@@ -36,13 +36,22 @@ The site natively supports system-based Dark and Light modes, fluid scroll anima
 
 ## ⚡ Performance
 
-I've put a lot of effort into making this site fast and accessible. By aggressively splitting code chunks in Vite and ensuring solid ARIA labels throughout the UI, the site currently holds a perfect 100/100 across the board on Lighthouse. Check it out:
+The site is tuned for a fast, accessible first paint:
 
-<div align="center">
-  <img alt="Lighthouse Score" src="assets/lighthouse-score.png" width="800" style="border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.15);" />
-</div>
+- **Self-hosted, subsetted fonts** (`public/fonts/*.woff2`) — no third-party font origin, 43 kB total instead of 124 kB from Google Fonts.
+- **CSS is inlined into `index.html`** at build time, so there are zero render-blocking subresources.
+- **Above-the-fold animations are pure CSS** (transform/opacity only), so first paint never waits on JavaScript.
+- **Below-the-fold sections are code-split** and fetched on scroll/anchor intent, keeping `motion` and the section bundles off the critical path.
+- **Mixpanel is loaded on engagement** (first scroll/click/keypress) rather than at startup.
+- **Images are WebP with `srcset`/`sizes`** and explicit `width`/`height` to avoid layout shift.
 
-<br />
+Run `./lh.sh [label] mobile|desktop` to reproduce a Lighthouse run against `vite preview`.
+
+### Hosting and cache headers
+
+`public/_headers`, `netlify.toml`, and `vercel.json` all ship the same policy: `Cache-Control: public, max-age=31536000, immutable` for `/assets/*` and `/fonts/*`, plus CSP, HSTS, COOP, `X-Frame-Options`, `nosniff`, `Referrer-Policy`, and `Permissions-Policy`.
+
+> **Note:** GitHub Pages hard-codes `Cache-Control: max-age=600` and does not allow custom response headers, so the long-lived cache and security headers only take effect when the built `dist/` is served from Cloudflare Pages, Netlify, or Vercel. On GitHub Pages the build falls back to the inline `<meta http-equiv="Content-Security-Policy">` policy in `index.html`.
 
 ---
 

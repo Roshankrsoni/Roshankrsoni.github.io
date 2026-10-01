@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, MapPin, ExternalLink, ChevronDown } from 'lucide-react';
 import { getSkillIcon } from '../utils/icons';
 
-import psLogo from '../../assets/PS_logo_grey.webp';
-import capitaLogo from '../../assets/capita_logo.jpeg';
-import cnLogo from '../../assets/capitalnumbers_logo.jpeg';
-import asortLogo from '../../assets/1768389997397.jpeg';
+import psLogo from '../../assets/logo-publicis-sapient.webp';
+import capitaLogo from '../../assets/logo-capita.webp';
+import cnLogo from '../../assets/logo-capitalnumbers.webp';
+import asortLogo from '../../assets/logo-asort.webp';
 
 const experiences = [
   {
@@ -80,16 +80,16 @@ export default function Experience() {
     <section id="experience" className="w-full relative mt-8">
       <div className="mb-6 sm:pl-4">
         <motion.h2 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: -20 }}
+          whileInView={{ x: 0 }}
           viewport={{ once: true }}
           className="text-xl md:text-2xl font-medium leading-tight tracking-tight text-slate-900 dark:text-slate-50"
         >
           My <span className="font-dancing-script font-bold text-blue-500">Work</span> History.
         </motion.h2>
         <motion.p 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: -20 }}
+          whileInView={{ x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
           className="mt-1.5 text-slate-500 dark:text-slate-400 font-mono text-[10px] uppercase tracking-widest"
@@ -102,8 +102,8 @@ export default function Experience() {
         {experiences.map((exp, index) => (
           <motion.div 
             key={exp.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             className={`relative pl-8 border-l-2 border-transparent ml-4 sm:ml-6 ${index !== experiences.length - 1 ? 'pb-6' : ''}`}
@@ -125,7 +125,7 @@ export default function Experience() {
                 onClick={() => setExpandedId(expandedId === exp.id ? 0 : exp.id)}
               >
                 <div className="flex items-start gap-3">
-                  <img alt={exp.company} loading="lazy" className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 object-cover mt-0.5" src={exp.logo} />
+                  <img alt={`${exp.company} logo`} width={40} height={40} loading="lazy" decoding="async" className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 object-cover mt-0.5" src={exp.logo} />
                   <div>
                     <h3 className="text-base font-medium font-inter text-slate-900 dark:text-slate-100 flex flex-wrap items-center gap-2 leading-tight">
                       {exp.role}
@@ -212,8 +212,6 @@ export default function Experience() {
       </div>
       
       <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         className="flex justify-center mt-6"
       >

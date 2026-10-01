@@ -1,11 +1,12 @@
-import { 
-  TbBrandNodejs, TbBrandTypescript, TbBrandJavascript, TbBrandTailwind, 
-  TbBrandReact, TbDatabase, TbBrandNextjs, TbApi, TbBrandFramer, 
-  TbBrandMysql, TbBrandVercel, TbPlugConnected, TbBrandAws, 
+import type { IconType } from 'react-icons';
+import {
+  TbBrandNodejs, TbBrandTypescript, TbBrandJavascript, TbBrandTailwind,
+  TbBrandReact, TbDatabase, TbBrandNextjs, TbApi, TbBrandFramer,
+  TbBrandMysql, TbBrandVercel, TbPlugConnected, TbBrandAws,
   TbBrandMongodb, TbPalette, TbCode
 } from 'react-icons/tb';
 
-export const getSkillIcon = (skill: string) => {
+export const getSkillIcon = (skill: string): IconType => {
   const s = skill.toLowerCase();
   if (s.includes('node')) return TbBrandNodejs;
   if (s.includes('typescript')) return TbBrandTypescript;

@@ -1,37 +1,70 @@
-import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
-import mixpanel from 'mixpanel-browser';
 
-mixpanel.init('7c3e503458c403a0ed52158cc05aade7', {
-  autocapture: true,
-  record_sessions_percent: 100,
-});
+const MIXPANEL_TOKEN = '7c3e503458c403a0ed52158cc05aade7';
 
-// Generate or retrieve a unique user ID
-let userId = localStorage.getItem('mixpanel_user_id');
-if (!userId) {
-  // Use crypto.randomUUID if available, otherwise fallback to a unique string
-  userId = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `user_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
-  localStorage.setItem('mixpanel_user_id', userId);
+function resolveVisitorId() {
+  try {
+    const stored = localStorage.getItem('mixpanel_user_id');
+    if (stored) return stored;
+    const generated =
+      typeof crypto !== 'undefined' && crypto.randomUUID
+        ? crypto.randomUUID()
+        : `user_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
+    localStorage.setItem('mixpanel_user_id', generated);
+    return generated;
+  } catch {
+    return `user_${Date.now()}`;
+  }
 }
 
-// Uniquely identify the user in Mixpanel
-mixpanel.identify(userId);
+async function initAnalytics() {
+  try {
+    const { default: mixpanel } = await import('mixpanel-browser');
+    mixpanel.init(MIXPANEL_TOKEN, {
+      autocapture: true,
+      record_sessions_percent: 0,
+      persistence: 'localStorage',
+    });
+    const userId = resolveVisitorId();
+    mixpanel.identify(userId);
+    mixpanel.people.set_once({
+      'First Visit': new Date().toISOString(),
+      'User Type': 'Anonymous',
+    });
+    mixpanel.people.set({ 'Last Visit': new Date().toISOString() });
+  } catch {
+    /* analytics is non-essential; never surface failures to the user */
+  }
+}
 
-// Set up Mixpanel profile properties
-mixpanel.people.set_once({
-  'First Visit': new Date().toISOString(),
-  'User Type': 'Anonymous'
-});
+function scheduleAnalytics() {
+  let started = false;
+  const start = () => {
+    if (started) return;
+    started = true;
+    detach();
+    void initAnalytics();
+  };
+  const detach = () => {
+    for (const evt of ENGAGEMENT_EVENTS) window.removeEventListener(evt, start);
+    clearTimeout(timer);
+  };
+  const timer = window.setTimeout(start, ENGAGEMENT_TIMEOUT);
+  for (const evt of ENGAGEMENT_EVENTS) {
+    window.addEventListener(evt, start, { once: true, passive: true });
+  }
+}
 
-mixpanel.people.set({
-  'Last Visit': new Date().toISOString()
-});
+const ENGAGEMENT_EVENTS = ['pointerdown', 'keydown', 'touchstart', 'scroll'] as const;
+const ENGAGEMENT_TIMEOUT = 8000;
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
   </StrictMode>,
 );
+
+scheduleAnalytics();

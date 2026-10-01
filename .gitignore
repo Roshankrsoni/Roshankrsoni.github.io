@@ -7,3 +7,5 @@ coverage/
 .env*
 !.env.example
 package-lock.json
+.netlify
+.vercel

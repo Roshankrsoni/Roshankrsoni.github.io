@@ -48,16 +48,16 @@ export default function Services() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: -20 }}
+            whileInView={{ x: 0 }}
             viewport={{ once: true }}
             className="text-xl md:text-2xl font-medium leading-tight tracking-tight text-slate-900 dark:text-slate-50"
           >
             My <span className="font-dancing-script font-bold text-amber-500">Services</span> & Expertise.
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: -20 }}
+            whileInView={{ x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="mt-1.5 text-slate-500 dark:text-slate-400 font-mono text-[10px] uppercase tracking-widest"
@@ -73,8 +73,8 @@ export default function Services() {
             <motion.div 
               key={index}
               onClick={() => setActiveIndex(index)}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ x: -20 }}
+              whileInView={{ x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className={`relative pl-6 py-5 cursor-pointer transition-all duration-300 rounded-r-2xl group ${activeIndex === index ? 'bg-slate-100 dark:bg-slate-900/80' : 'hover:bg-slate-50 dark:hover:bg-slate-900/40'}`}
@@ -90,8 +90,8 @@ export default function Services() {
         </div>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ scale: 0.95 }}
+          whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           className="order-1 lg:order-2 h-[250px] sm:h-[300px] w-full relative perspective-1000"
         >
@@ -101,9 +101,9 @@ export default function Services() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                exit={{ y: -20 }}
                 transition={{ duration: 0.3 }}
                 className="relative z-10 flex flex-col items-center"
               >
@@ -137,8 +137,6 @@ export default function Services() {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         className="flex justify-center"
       >

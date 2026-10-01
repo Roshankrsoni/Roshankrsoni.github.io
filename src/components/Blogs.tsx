@@ -46,16 +46,16 @@ export default function Blogs() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
         <div className="space-y-2 pl-4">
           <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: -20 }}
+            whileInView={{ x: 0 }}
             viewport={{ once: true }}
             className="text-xl md:text-2xl font-medium tracking-tight text-slate-900 dark:text-slate-50"
           >
             Latest <span className="font-dancing-script font-bold text-violet-500">Writings</span>.
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: -20 }}
+            whileInView={{ x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-xs text-slate-500 dark:text-slate-400 font-mono"
@@ -67,14 +67,14 @@ export default function Blogs() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
         {displayedBlogs.map((blog, index) => (
-          <motion.a 
+          <motion.a
             key={blog.id}
             href={blog.link}
-            aria-label={`Read article: ${blog.title}`}
-            target="_blank" 
+            aria-labelledby={`blog-title-${blog.id}`}
+            target="_blank"
             rel="noopener noreferrer" 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             className="group relative flex flex-col h-full bg-white dark:bg-slate-900/40 rounded-2xl overflow-hidden hover:shadow-xl shadow-sm dark:shadow-none transition-all duration-300 ease-in-out border border-slate-200 dark:border-slate-800"
@@ -82,7 +82,7 @@ export default function Blogs() {
             <div className="absolute inset-0 opacity-30 dark:opacity-10 pointer-events-none bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px]"></div>
             
             <div className="relative flex flex-col grow py-4 px-4 transition-all duration-300 ease-in-out z-10">
-              <h3 className="text-base font-semibold text-slate-800 dark:text-slate-100 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2 mb-3 leading-snug">
+              <h3 id={`blog-title-${blog.id}`} className="text-base font-semibold text-slate-800 dark:text-slate-100 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2 mb-3 leading-snug">
                 {blog.title}
               </h3>
               
@@ -114,8 +114,6 @@ export default function Blogs() {
       
       {blogs.length > 3 && (
         <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="flex justify-center mt-6"
         >

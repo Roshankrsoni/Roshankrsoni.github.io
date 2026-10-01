@@ -2,12 +2,136 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/inter.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Dancing Script";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/dancing-script.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Dancing Script";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/dancing-script.woff2") format("woff2");
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --font-dancing-script: "Dancing Script", cursive;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50;
+}
+
+@keyframes slide-marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes drop-in {
+  from {
+    transform: translateY(-16px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes swap-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-slide-marquee {
+  animation: slide-marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.group:hover .animate-slide-marquee {
+  animation-play-state: paused;
+}
+
+.animate-rise-in {
+  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-in-late {
+  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.animate-drop-in {
+  animation: drop-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-swap-in {
+  animation: swap-in 0.4s ease-in-out both;
+}
+
+.draw-stroke {
+  stroke-dashoffset: 1;
+  animation: draw-stroke 0.8s ease-out 0.8s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

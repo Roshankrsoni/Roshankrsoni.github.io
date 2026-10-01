@@ -1,11 +1,22 @@
 import { motion } from 'motion/react';
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import { getSkillIcon } from '../utils/icons';
-import portfolioImg from '../../assets/portfolio.png';
 import { BiLogoPlayStore } from 'react-icons/bi';
 import { FaAppStore } from 'react-icons/fa';
 
-import imperialDadeImg from '../../assets/Imperial-Dade-Ecommerce.webp';
+import portfolioSm from '../../assets/portfolio-480.webp';
+import portfolioMd from '../../assets/portfolio-768.webp';
+import portfolioImg from '../../assets/portfolio.webp';
+
+import imperialSm from '../../assets/imperial-dade-480.webp';
+import imperialMd from '../../assets/imperial-dade-768.webp';
+import imperialDadeImg from '../../assets/imperial-dade.webp';
+
+import asortSm from '../../assets/asort-480.webp';
+import asortMd from '../../assets/asort-768.webp';
+import asortImg from '../../assets/asort.webp';
+
+const CARD_SIZES = '(min-width: 1024px) 330px, (min-width: 768px) 480px, calc(100vw - 2rem)';
 
 const projects = [
   {
@@ -13,6 +24,7 @@ const projects = [
     title: "Imperial Dade Web & Mobile App",
     description: "A production‑grade B2B E‑Commerce application for iOS, Android, and web, serving cleaning and foodservice organizations across North America. Built with React Native and Redux Thunk, it supports offline usage, robust search, and frictionless ordering for high‑volume customers.",
     image: imperialDadeImg,
+    srcset: `${imperialSm} 480w, ${imperialMd} 768w, ${imperialDadeImg} 1000w`,
     playStoreLink: "https://play.google.com/store/apps/details?id=com.imperialdade.androidapp&hl=en_US",
     appStoreLink: "https://apps.apple.com/us/app/imperial-dade/id6475366936",
     link: "https://imperialdade.com",
@@ -22,7 +34,8 @@ const projects = [
     id: 2,
     title: "Asort E-Commerce Platform & App",
     description: "A full‑stack Co‑Commerce platform powering a fashion and lifestyle marketplace, built on the MERN stack. It handles complex product catalogs, secure checkout, and real‑time inventory, while remaining performant under heavy user traffic.",
-    image: "https://i.ytimg.com/vi/HscGu0EH5ts/hqdefault.jpg",
+    image: asortImg,
+    srcset: `${asortSm} 480w, ${asortMd} 768w, ${asortImg} 1000w`,
     link: "https://asort.com/home",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asort.asortplus&hl=en_IN",
     appStoreLink: "https://apps.apple.com/in/app/asort/id1474066670?l=hi",
@@ -33,6 +46,7 @@ const projects = [
     title: "Personal Portfolio",
     description: "A modern, performance‑focused portfolio built with React 19, Tailwind CSS v4, and the Motion API. Designed with accessibility, smooth scroll‑based animations, and subtle micro‑interactions to feel fast and polished on every device.",
     image: portfolioImg,
+    srcset: `${portfolioSm} 480w, ${portfolioMd} 768w, ${portfolioImg} 1200w`,
     link: "https://roshankrsoni.github.io",
     githubLink: "https://github.com/Roshankrsoni/Roshankrsoni.github.io",
     tags: ["React.js", "TailwindCSS", "Motion", "Vercel"] // Vercel icon works as a general hosting icon
@@ -58,16 +72,16 @@ export default function Projects() {
     <section id="projects" className="space-y-4 py-8">
       <div className="mb-6 sm:pl-4">
         <motion.h2 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: -20 }}
+          whileInView={{ x: 0 }}
           viewport={{ once: true }}
           className="text-xl md:text-2xl font-medium leading-tight tracking-tight text-slate-900 dark:text-slate-50"
         >
           My <span className="font-dancing-script font-bold text-emerald-500">Projects</span> Featured.
         </motion.h2>
         <motion.p 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: -20 }}
+          whileInView={{ x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
           className="mt-1.5 text-slate-500 dark:text-slate-400 font-mono text-[10px] uppercase tracking-widest"
@@ -80,20 +94,24 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div 
             key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             className="group relative flex flex-col bg-slate-50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-black/50 transition-all duration-500 ease-out h-full"
           >
             <div className="relative w-full aspect-video overflow-hidden bg-slate-200 dark:bg-slate-800 shrink-0">
               <div className="absolute inset-0 opacity-40 dark:opacity-20 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px]"></div>
-              <img 
-                alt={project.title} 
+              <img
+                alt={project.title}
+                width={1000}
+                height={563}
+                sizes={CARD_SIZES}
+                srcSet={project.srcset}
                 loading="lazy"
                 decoding="async"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-1 opacity-90 group-hover:opacity-100" 
-                src={project.image} 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-1 opacity-90 group-hover:opacity-100"
+                src={project.image}
               />
               <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-slate-900/60 sm:from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
@@ -146,8 +164,6 @@ export default function Projects() {
       </div>
       
       <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         className="flex justify-center mt-6"
       >
