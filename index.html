@@ -41,7 +41,7 @@
      <meta content=#ffffff name=msapplication-TileColor>
      <meta content=/favicon.webp name=msapplication-TileImage>
      <meta id="theme-color-meta" content="#020617" name="theme-color">
-     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://api-js.mixpanel.com https://cdn.mxpnl.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.mixpanel.com https://api-js.mixpanel.com https://cdn.mxpnl.com; form-action 'self'; upgrade-insecure-requests">
+     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://api-js.mixpanel.com https://cdn.mxpnl.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.mixpanel.com https://api-js.mixpanel.com https://cdn.mxpnl.com https://cloudflareinsights.com; form-action 'self'; upgrade-insecure-requests">
      <script>
           try {
                var theme = localStorage.getItem('theme');
@@ -62,6 +62,7 @@
 <body>
      <div id="root"></div>
      <script type="module" src="/src/main.tsx"></script>
+     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3142e170b463424f8c5ce1fd54cd9e8a"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>
